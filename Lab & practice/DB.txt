@@ -1,0 +1,770 @@
+﻿mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> SELECT TICKET_NO, PARK_CODE, TICKET_PRICE
+    -> FROM TICKET
+    -> WHERE TICKET_PRICE > ALL (SELECT TICKET_PRICE FROM TICKET
+    -> WHERE TICKET_TYPE = 'CHILD');
++-----------+-----------+--------------+
+| TICKET_NO | PARK_CODE | TICKET_PRICE |
++-----------+-----------+--------------+
+|     11001 | SP4533    |        24.99 |
+|     13002 | FR1001    |        34.99 |
+|     67833 | ZA1342    |        28.67 |
+|     88568 | UK3452    |        42.10 |
++-----------+-----------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT
+    -> TICKET_NO, TICKET_PRICE,
+    -> (SELECT AVG(TICKET_PRICE) FROM TICKET) AS AVGPRICE,
+    -> TICKET_PRICE - (SELECT AVG(TICKET_PRICE) FROM TICKET) AS DIFF
+    -> FROM TICKET;
++-----------+--------------+-----------+------------+
+| TICKET_NO | TICKET_PRICE | AVGPRICE  | DIFF       |
++-----------+--------------+-----------+------------+
+|     11001 |        24.99 | 21.740000 |   3.250000 |
+|     11002 |        14.99 | 21.740000 |  -6.750000 |
+|     11003 |        10.99 | 21.740000 | -10.750000 |
+|     13001 |        18.99 | 21.740000 |  -2.750000 |
+|     13002 |        34.99 | 21.740000 |  13.250000 |
+|     13003 |        20.99 | 21.740000 |  -0.750000 |
+|     67832 |        18.56 | 21.740000 |  -3.180000 |
+|     67833 |        28.67 | 21.740000 |   6.930000 |
+|     67855 |        12.12 | 21.740000 |  -9.620000 |
+|     88567 |        22.50 | 21.740000 |   0.760000 |
+|     88568 |        42.10 | 21.740000 |  20.360000 |
+|     89720 |        10.99 | 21.740000 | -10.750000 |
++-----------+--------------+-----------+------------+
+12 rows in set (0.01 sec)
+
+mysql> SELECT * FROM EMPLOYEE;
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+| EMP_NUM | EMP_TITLE | EMP_LNAME  | EMP_FNAME | EMP_DOB    | EMP_HIRE_DATE | EMP_AREA_CODE | EMP_PHONE | PARK_CODE |
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+|     100 | Ms        | Calderdale | Emma      | 1972-06-15 | 1992-03-15    | 0181          | 324-9134  | FR1001    |
+|     101 | Ms        | Ricardo    | Marshel   | 1978-03-19 | 1996-04-25    | 0181          | 324-4472  | UK3452    |
+|     102 | Mr        | Arshad     | Arif      | 1969-11-14 | 1990-12-20    | 7253          | 675-8993  | FR1001    |
+|     103 | Ms        | Roberts    | Anne      | 1974-10-16 | 1994-08-16    | 0181          | 898-3456  | UK3452    |
+|     104 | Mr        | Denver     | Enrica    | 1980-11-08 | 2001-10-20    | 7253          | 504-4434  | ZA1342    |
+|     105 | Ms        | Namowa     | Mirrelle  | 1990-03-14 | 2006-11-08    | 0181          | 890-3243  | FR1001    |
+|     106 | Mrs       | Smith      | Gemma     | 1968-02-12 | 1989-01-05    | 0181          | 324-7845  | ZA1342    |
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT * FROM HOURS;
++---------+------------+-------------------+-----------+-------------+
+| EMP_NUM | ATTRACT_NO | HOURS_PER_ATTRACT | HOUR_RATE | DATE_WORKED |
++---------+------------+-------------------+-----------+-------------+
+|     100 |      10034 |                 6 |      6.50 | 2007-05-18  |
+|     100 |      10034 |                 6 |      6.50 | 2007-05-20  |
+|     101 |      10034 |                 6 |      6.50 | 2007-05-18  |
+|     102 |      30012 |                 3 |      5.99 | 2007-05-23  |
+|     102 |      30044 |                 6 |      5.99 | 2007-05-21  |
+|     102 |      30044 |                 3 |      5.99 | 2007-05-22  |
+|     104 |      30011 |                 6 |      7.20 | 2007-05-21  |
+|     104 |      30012 |                 6 |      7.20 | 2007-05-22  |
+|     105 |      10078 |                 3 |      8.50 | 2007-05-18  |
+|     105 |      10098 |                 3 |      8.50 | 2007-05-18  |
+|     105 |      10098 |                 6 |      8.50 | 2007-05-19  |
++---------+------------+-------------------+-----------+-------------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,
+    -> (SELECT AVG(HOURS_PER_ATTRACT) FROM HOURS) AS AVERAGE
+    -> ,HOURS_PER_ATTRACT-(SELECT AVG(HOURS_PER_ATTRACT) FROM HOURS) AS DIFFERENCEE FROM HOURS
+    -> NATURAL JOIN HOUR 
+    -> GROUP BY EMP_LNAME;
+ERROR 1146 (42S02): Table 'themepark.HOUR' doesn't exist
+mysql>  
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_RATE) AS "AVERAGE" , (SUM(HOURS_PER_ATTRACT) - AVG (HOURS_PER_ATTRACT) AS "DIFFERENCEE" 
+    -> FROM EMPLOYEE NATURAL JOIN HOURS
+    -> GROUP BY EMPLOYEE.EMP_LNAM;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS "DIFFERENCEE" 
+FROM EMPLOYEE NATURAL JOIN HOURS
+GROUP BY EMPLOYEE.EMP_LNAM' at line 1
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_RATE) AS "AVERAGE" , (SUM(HOURS_PER_ATTRACT) - AVG (HOURS_PER_ATTRACT) AS "DIFFERENCEE"  FROM
+EMPLOYEE NATURAL JOIN HOURS GROUP BY EMPLOYEE.EMP_LNAME;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS "DIFFERENCEE"  FROM EMPLOYEE NATURAL JOIN HOURS GROUP BY EMPLOYEE.EMP_LNAME' at line 1
+mysql> select emp_fname,emp_lname,date_worked,avg(hours_per_Attract) as average,(sum(hours_per_attract) -avg(hours_per_Attract)) as diference-> from employee natural join hours-> group by employee.emp_lname;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> from employee natural join hours-> group by employee.emp_lname' at line 1
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_RATE) AS "AVERAGE" , (SUM(HOURS_PER_ATTRACT) - AVG (HOURS_PER_ATTRACT) AS "DIFFERENCEE"  FROM
+EMPLOYEE NATURAL JOIN HOURS GROUP BY EMPLOYEE.EMP_LNAM;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS "DIFFERENCEE"  FROM EMPLOYEE NATURAL JOIN HOURS GROUP BY EMPLOYEE.EMP_LNAM' at line 1
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_RATE) AS "AVERAGE" , (SUM(HOURS_PER_ATTRACT) - AVG (HOURS_PER_ATTRACT) AS DIFFERENCE  FROM EMPLOYEE 
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS DIFFERENCE  FROM EMPLOYEE NATURAL JOIN HOURS GROUP BY EMPLOYEE.EMP_LNAM' at line 1
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_RATE) AS "AVERAGE" , (SUM(HOURS_PER_ATTRACT) - AVG (HOURS_PER_ATTRACT)) AS DIFFERENCE  FROM EMPLOYEE NATURAL JOIN HOURS GROUP BY EMPLOYEE.EMP_LNAM;
+ERROR 1054 (42S22): Unknown column 'HOURS_RATE' in 'field list'
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_PER_ATTRACT) AS AVERAGE , (SUM(HOURS_PER_ATTRACT) - AVG (HOURS_PER_ATTRACT)) AS DIFFERENCE  FROM EMPLOYEE NATURAL JOIN HOURS GROUP BY EMPLOYEE.EMP_LNAM;
+ERROR 1054 (42S22): Unknown column 'EMPLOYEE.EMP_LNAM' in 'group statement'
+mysql> 
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_PER_ATTRACT) AS AVERAGE , (SUM(HOURS_PER_ATTRACT) - AVG (HOURS_PER_ATTRACT)) AS DIFFERENCE  FROM EMPLOYEE NATURAL JOIN HOURS GROUP BY EMP_LNAM;
+ERROR 1054 (42S22): Unknown column 'EMP_LNAM' in 'group statement'
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_PER_ATTRACT) AS AVERAGE , (SUM(HOURS_PER_ATTRACT) - AVG (HOURS_PER_ATTRACT)) AS DIFFERENCE  FROM EMPLOYEE NATURAL JOIN HOURS GROUP BY EMP_LNAME;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'themepark.EMPLOYEE.EMP_FNAME' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_PER_ATTRACT) AS AVERAGE , (SUM(HOURS_PER_ATTRACT) - AVG (HOURS_PER_ATTRACT)) AS DIFFERENCE  FROM EMPLOYEE NATURAL JOIN HOURS GROUP BYEMPLOYEE.EMP_LNAME;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BYEMPLOYEE.EMP_LNAME' at line 1
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_PER_ATTRACT) AS AVERAGE , (SUM(HOURS_PER_ATTRACT) - AVG (HOURS_PER_ATTRACT)) AS DIFFERENCE  FROM EMPLOYEE NATURAL JOIN HOURS GROUP BY EMPLOYEE.EMP_LNAME;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'themepark.EMPLOYEE.EMP_FNAME' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,(SELECT AVG(HOURS_PER_ATTRACT) FROM HOURS) AS AVERAGE,HOURS_PER_ATTRACT-(SELECT AVG(HOURS_PER_ATTRACT) FROM HOURS) AS DIFFERENCEE FROM HOURS NATURAL JOIN EMPLOYEE GROUP BY EMP_FNAME;
+ERROR 1055 (42000): Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'themepark.EMPLOYEE.EMP_LNAME' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql>  SELECT TRANSACTION_NO, LINE_NO, LINE_QTY, LINE_PRICE
+    ->     -> FROM SALES_LINE SL
+    ->     -> WHERE SL.LINE_QTY > (SELECT AVG(LINE_QTY)
+    ->     -> FROM SALES_LINE SA
+    ->      WHERE SA. TRANSACTION_NO = SL. TRANSACTION_NO);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM SALES_LINE SL
+    -> WHERE SL.LINE_QTY > (SELECT AVG(LINE_QTY)
+    -> FROM ' at line 2
+mysql> SELECT TRANSACTION_NO, LINE_NO, LINE_QTY, LINE_PRICE   FROM SALES_LINE SL WHERE SL.LINE_QTY (SELECT AVG(LINE_QTY) FROM SALES_LINE SA      WHERE SA. TRANSACTION_NO = SL. TRANSACTION_NO);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT AVG(LINE_QTY) FROM SALES_LINE SA      WHERE SA. TRANSACTION_NO = SL. TRAN' at line 1
+mysql> SELECT TRANSACTION_NO, LINE_NO, LINE_QTY, LINE_PRICE   FROM SALES_LINE SL WHERE SL.LINE_QTY (SELECT AVG(LINE_QTY) FROM SALES_LINE SA      WHERE SA. TRANSACTION_NO = SL. TRANSACTION_NO);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT AVG(LINE_QTY) FROM SALES_LINE SA      WHERE SA. TRANSACTION_NO = SL. TRAN' at line 1
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select park_code,park_name,park_country from themepark where NOT EXISTS ( select park_code from sales where sales.park_code =themepark.park_code);
+ERROR 1146 (42S02): Table 'themepark.themepark' doesn't exist
+mysql> SELCET * FROM THEMEPARK;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELCET * FROM THEMEPARK' at line 1
+mysql> SELECT * FROM THEMEPARK;
++-----------+---------------+--------------+--------------+
+| PARK_CODE | PARK_NAME     | PARK_CITY    | PARK_COUNTRY |
++-----------+---------------+--------------+--------------+
+| FR1001    | FairyLand     | PARIS        | FR           |
+| NL1202    | Efling        | NOORD        | NL           |
+| SP4533    | AdventurePort | BARCELONA    | SP           |
+| SW2323    | Labyrinthe    | LAUSANNE     | SW           |
+| UK2622    | MiniLand      | WINDSOR      | UK           |
+| UK3452    | PleasureLand  | STOKE        | UK           |
+| ZA1342    | GoldTown      | JOHANNESBURG | ZA           |
++-----------+---------------+--------------+--------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT * FROM THEMEPARK;
++-----------+---------------+--------------+--------------+
+| PARK_CODE | PARK_NAME     | PARK_CITY    | PARK_COUNTRY |
++-----------+---------------+--------------+--------------+
+| FR1001    | FairyLand     | PARIS        | FR           |
+| NL1202    | Efling        | NOORD        | NL           |
+| SP4533    | AdventurePort | BARCELONA    | SP           |
+| SW2323    | Labyrinthe    | LAUSANNE     | SW           |
+| UK2622    | MiniLand      | WINDSOR      | UK           |
+| UK3452    | PleasureLand  | STOKE        | UK           |
+| ZA1342    | GoldTown      | JOHANNESBURG | ZA           |
++-----------+---------------+--------------+--------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT * FROM THEMEPARK;
++-----------+---------------+--------------+--------------+
+| PARK_CODE | PARK_NAME     | PARK_CITY    | PARK_COUNTRY |
++-----------+---------------+--------------+--------------+
+| FR1001    | FairyLand     | PARIS        | FR           |
+| NL1202    | Efling        | NOORD        | NL           |
+| SP4533    | AdventurePort | BARCELONA    | SP           |
+| SW2323    | Labyrinthe    | LAUSANNE     | SW           |
+| UK2622    | MiniLand      | WINDSOR      | UK           |
+| UK3452    | PleasureLand  | STOKE        | UK           |
+| ZA1342    | GoldTown      | JOHANNESBURG | ZA           |
++-----------+---------------+--------------+--------------+
+7 rows in set (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> SELECT * FROM THEMEPARK;
++-----------+---------------+--------------+--------------+
+| PARK_CODE | PARK_NAME     | PARK_CITY    | PARK_COUNTRY |
++-----------+---------------+--------------+--------------+
+| FR1001    | FairyLand     | PARIS        | FR           |
+| NL1202    | Efling        | NOORD        | NL           |
+| SP4533    | AdventurePort | BARCELONA    | SP           |
+| SW2323    | Labyrinthe    | LAUSANNE     | SW           |
+| UK2622    | MiniLand      | WINDSOR      | UK           |
+| UK3452    | PleasureLand  | STOKE        | UK           |
+| ZA1342    | GoldTown      | JOHANNESBURG | ZA           |
++-----------+---------------+--------------+--------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT PARK_CODE,PARK_NAME,PARK_COUNTRY 
+    -> FROM THEMEPARK
+    -> WHERE NOT EXISTS 
+    -> (SELECT PARK_CODE FROM SALES WHERE SALES.PARK_CODE =THEMEPARK.PARK_CODE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 4
+mysql> SELECT PARK_CODE,PARK_NAME,PARK_COUNTRY  FROM THEMEPARK WHERE NOT EXISTS (SELECT PARK_CODE FROM SALES WHERE SALES.PARK_CODE =PARK_CODE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> SELECT PARK_CODE,PARK_NAME,PARK_COUNTRY  FROM THEMEPARK WHERE NOT EXISTS (SELECT PARK_CODE FROM SALES WHERE SALES.PARK_CODE=THEMEPARK.PARK_CODE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> 
+
+mysql> SSET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SSET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))' at line 1
+mysql> SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> S
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mysql> SSELECT * FROM TICKET;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SSELECT * FROM TICKET' at line 1
+mysql> SELECT * FROM TICKET;
++-----------+--------------+-------------+-----------+
+| TICKET_NO | TICKET_PRICE | TICKET_TYPE | PARK_CODE |
++-----------+--------------+-------------+-----------+
+|     11001 |        24.99 | Adult       | SP4533    |
+|     11002 |        14.99 | Child       | SP4533    |
+|     11003 |        10.99 | Senior      | SP4533    |
+|     13001 |        18.99 | Child       | FR1001    |
+|     13002 |        34.99 | Adult       | FR1001    |
+|     13003 |        20.99 | Senior      | FR1001    |
+|     67832 |        18.56 | Child       | ZA1342    |
+|     67833 |        28.67 | Adult       | ZA1342    |
+|     67855 |        12.12 | Senior      | ZA1342    |
+|     88567 |        22.50 | Child       | UK3452    |
+|     88568 |        42.10 | Adult       | UK3452    |
+|     89720 |        10.99 | Senior      | UK3452    |
++-----------+--------------+-------------+-----------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT TICKET_PRICE FROM TICKET 
+    -> WHERE TICKET_TYPE ='CHILD'
+    -> ;
++--------------+
+| TICKET_PRICE |
++--------------+
+|        14.99 |
+|        18.99 |
+|        18.56 |
+|        22.50 |
++--------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT TICKET_PRICE FROM TICKET WHERE TICKET_TYPE ='CHILD';SELECT TICKET_NO, PARK_CODE, TICKET_PRICE
++--------------+
+| TICKET_PRICE |
++--------------+
+|        14.99 |
+|        18.99 |
+|        18.56 |
+|        22.50 |
++--------------+
+4 rows in set (0.00 sec)
+
+    -> FROM TICKET
+    -> WHERE TICKET_PRICE > ALL (SELECT TICKET_PRICE FROM TICKET
+    -> WHERE TICKET_TYPE = 'CHILD');
++-----------+-----------+--------------+
+| TICKET_NO | PARK_CODE | TICKET_PRICE |
++-----------+-----------+--------------+
+|     11001 | SP4533    |        24.99 |
+|     13002 | FR1001    |        34.99 |
+|     67833 | ZA1342    |        28.67 |
+|     88568 | UK3452    |        42.10 |
++-----------+-----------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT TICKET_PRICE FROM TICKET WHERE TICKET_TYPE ='CHILD'
+    -> ;
++--------------+
+| TICKET_PRICE |
++--------------+
+|        14.99 |
+|        18.99 |
+|        18.56 |
+|        22.50 |
++--------------+
+4 rows in set (0.01 sec)
+
+mysql> SELECT TICKET_PRICE,PARK_CODE,TICKET_NO FROM TICKET
+    -> WHERE TICKET_PRICE > ALL (SELECT TICKET_PRICE FROM TICKET WHERE TICKET_TYPE ='CHILD');
++--------------+-----------+-----------+
+| TICKET_PRICE | PARK_CODE | TICKET_NO |
++--------------+-----------+-----------+
+|        24.99 | SP4533    |     11001 |
+|        34.99 | FR1001    |     13002 |
+|        28.67 | ZA1342    |     67833 |
+|        42.10 | UK3452    |     88568 |
++--------------+-----------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT
+    -> TICKET_NO, TICKET_PRICE,
+    -> (SELECT AVG(TICKET_PRICE) FROM TICKET) AS AVGPRICE,
+    -> TICKET_PRICE - (SELECT AVG(TICKET_PRICE) FROM TICKET) AS DIFF
+    -> FROM TICKET;
++-----------+--------------+-----------+------------+
+| TICKET_NO | TICKET_PRICE | AVGPRICE  | DIFF       |
++-----------+--------------+-----------+------------+
+|     11001 |        24.99 | 21.740000 |   3.250000 |
+|     11002 |        14.99 | 21.740000 |  -6.750000 |
+|     11003 |        10.99 | 21.740000 | -10.750000 |
+|     13001 |        18.99 | 21.740000 |  -2.750000 |
+|     13002 |        34.99 | 21.740000 |  13.250000 |
+|     13003 |        20.99 | 21.740000 |  -0.750000 |
+|     67832 |        18.56 | 21.740000 |  -3.180000 |
+|     67833 |        28.67 | 21.740000 |   6.930000 |
+|     67855 |        12.12 | 21.740000 |  -9.620000 |
+|     88567 |        22.50 | 21.740000 |   0.760000 |
+|     88568 |        42.10 | 21.740000 |  20.360000 |
+|     89720 |        10.99 | 21.740000 | -10.750000 |
++-----------+--------------+-----------+------------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT TRANSACTION_NO, LINE_NO, LINE_QTY, LINE_PRICE
+    -> FROM SALES_LINE SL
+    -> 10WHERE SL.LINE_QTY > (SELECT AVG(LINE_QTY)
+    -> FROM SALES_LINE SA
+    -> WHERE SA. TRANSACTION_NO = SL. TRANSACTION_NO);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10WHERE SL.LINE_QTY > (SELECT AVG(LINE_QTY)
+FROM SALES_LINE SA
+WHERE SA. TRANSAC' at line 3
+mysql> SELECT TRANSACTION_NO, LINE_NO, LINE_QTY, LINE_PRICE FROM SALES_LINE SL 10WHERE SL.LINE_QTY > (SELECT AVG(LINE_QTY) FROM SALES_LINE SA WHERE SA. TRANSACTION_NO = SL. TRANSACTION_NO);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10WHERE SL.LINE_QTY > (SELECT AVG(LINE_QTY) FROM SALES_LINE SA WHERE SA. TRANSAC' at line 1
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> SELECT TRANSACTION_NO, LINE_NO, LINE_QTY, LINE_PRICE
+    -> FROM SALES_LINE SL
+    -> WHERE SL.LINE_QTY > (SELECT AVG(LINE_QTY)
+    -> FROM SALES_LINE SA
+    -> WHERE SA. TRANSACTION_NO = SL. TRANSACTION_NO);
++----------------+---------+----------+------------+
+| TRANSACTION_NO | LINE_NO | LINE_QTY | LINE_PRICE |
++----------------+---------+----------+------------+
+|          12781 |       1 |        2 |      69.98 |
+|          12785 |       3 |        4 |     139.96 |
+|          34534 |       1 |        4 |     168.40 |
+|          34537 |       1 |        2 |      84.20 |
+|          34540 |       1 |        4 |     168.40 |
++----------------+---------+----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> SELECT PARK_CODE, PARK_NAME, PARK_COUNTRY
+    -> FROM THEMEPARK
+    -> WHERE EXISTS (SELECT PARK_CODE FROM SALES
+    -> WHERE SALES.PARK_CODE = THEMEPARK.PARK_CODE);
++-----------+--------------+--------------+
+| PARK_CODE | PARK_NAME    | PARK_COUNTRY |
++-----------+--------------+--------------+
+| FR1001    | FairyLand    | FR           |
+| UK3452    | PleasureLand | UK           |
+| ZA1342    | GoldTown     | ZA           |
++-----------+--------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM HOURS
+    -> ;
++---------+------------+-------------------+-----------+-------------+
+| EMP_NUM | ATTRACT_NO | HOURS_PER_ATTRACT | HOUR_RATE | DATE_WORKED |
++---------+------------+-------------------+-----------+-------------+
+|     100 |      10034 |                 6 |      6.50 | 2007-05-18  |
+|     100 |      10034 |                 6 |      6.50 | 2007-05-20  |
+|     101 |      10034 |                 6 |      6.50 | 2007-05-18  |
+|     102 |      30012 |                 3 |      5.99 | 2007-05-23  |
+|     102 |      30044 |                 6 |      5.99 | 2007-05-21  |
+|     102 |      30044 |                 3 |      5.99 | 2007-05-22  |
+|     104 |      30011 |                 6 |      7.20 | 2007-05-21  |
+|     104 |      30012 |                 6 |      7.20 | 2007-05-22  |
+|     105 |      10078 |                 3 |      8.50 | 2007-05-18  |
+|     105 |      10098 |                 3 |      8.50 | 2007-05-18  |
+|     105 |      10098 |                 6 |      8.50 | 2007-05-19  |
++---------+------------+-------------------+-----------+-------------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMPLOYEE;
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+| EMP_NUM | EMP_TITLE | EMP_LNAME  | EMP_FNAME | EMP_DOB    | EMP_HIRE_DATE | EMP_AREA_CODE | EMP_PHONE | PARK_CODE |
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+|     100 | Ms        | Calderdale | Emma      | 1972-06-15 | 1992-03-15    | 0181          | 324-9134  | FR1001    |
+|     101 | Ms        | Ricardo    | Marshel   | 1978-03-19 | 1996-04-25    | 0181          | 324-4472  | UK3452    |
+|     102 | Mr        | Arshad     | Arif      | 1969-11-14 | 1990-12-20    | 7253          | 675-8993  | FR1001    |
+|     103 | Ms        | Roberts    | Anne      | 1974-10-16 | 1994-08-16    | 0181          | 898-3456  | UK3452    |
+|     104 | Mr        | Denver     | Enrica    | 1980-11-08 | 2001-10-20    | 7253          | 504-4434  | ZA1342    |
+|     105 | Ms        | Namowa     | Mirrelle  | 1990-03-14 | 2006-11-08    | 0181          | 890-3243  | FR1001    |
+|     106 | Mrs       | Smith      | Gemma     | 1968-02-12 | 1989-01-05    | 0181          | 324-7845  | ZA1342    |
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT EMP_LNAME,EMP_LNAME FROM EMPLOYEE;
++------------+------------+
+| EMP_LNAME  | EMP_LNAME  |
++------------+------------+
+| Calderdale | Calderdale |
+| Ricardo    | Ricardo    |
+| Arshad     | Arshad     |
+| Roberts    | Roberts    |
+| Denver     | Denver     |
+| Namowa     | Namowa     |
+| Smith      | Smith      |
++------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT AVG(HOUR_RATE) FROM HOURS;
++----------------+
+| AVG(HOUR_RATE) |
++----------------+
+|       7.033636 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT EMP_LNAME,EMP_LNAME FROM EMPLOYEE
+    -> NATURAL JOIN HOURS 
+    -> WHERE HOUR_RATE > (SELECT (HOUR_RATE) FROM HOURS);
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql> SELECT DISTNCT EMP_LNAME,EMP_LNAME FROM EMPLOYEE NATURAL JOIN HOURS  WHERE HOUR_RATE > (SELECT (HOUR_RATE) FROM HOURS);
+ERROR 1054 (42S22): Unknown column 'DISTNCT' in 'field list'
+mysql> SELECT EMP_FNAME,EMP_LNAME FROM EMPLOYEE NATURAL JOIN HOURS  WHERE HOUR_RATE > (SELECT (HOUR_RATE) FROM HOURS);
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> SELECT EMP_FNAME,EMP_FNAME FROM EMPLOYEE
+    -> NATURAL JOIN HOURS
+    -> WHERE HOUR_RATE > (SELECT AVG(HOUR_RATE) FROM HOURS);
++-----------+-----------+
+| EMP_FNAME | EMP_FNAME |
++-----------+-----------+
+| Enrica    | Enrica    |
+| Enrica    | Enrica    |
+| Mirrelle  | Mirrelle  |
+| Mirrelle  | Mirrelle  |
+| Mirrelle  | Mirrelle  |
++-----------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT DISTINCT EMP_FNAME,EMP_FNAME FROM EMPLOYEE NATURAL JOIN HOURS WHERE HOUR_RATE > (SELECT AVG(HOUR_RATE) FROM HOURS);
++-----------+-----------+
+| EMP_FNAME | EMP_FNAME |
++-----------+-----------+
+| Enrica    | Enrica    |
+| Mirrelle  | Mirrelle  |
++-----------+-----------+
+2 rows in set (0.04 sec)
+
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_PER_ATTRACT) AS AVERAGE
+    -> ,(SUM(HOURS_PER_ATTRACT) - AVG(HOURS_PER_ATTRACT)) AS DIFFERENCE 
+    -> FROM EMPLOYEE NATURAL JOIN HOURS
+    -> GROUP BY EMPLOYEE.MP_LNAME;
+ERROR 1054 (42S22): Unknown column 'EMPLOYEE.MP_LNAME' in 'group statement'
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_PER_ATTRACT) AS AVERAGE ,(SUM(HOURS_PER_ATTRACT) - AVG(HOURS_PER_ATTRACT)) AS DIFFERENCE  FROM EMPLOYEE NATURAL JOIN HOURS GROUP BY EMPLOYEE.EMP_LNAME;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'themepark.EMPLOYEE.EMP_FNAME' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_PER_ATTRACT) AS AVERAGE ,(SUM(HOURS_PER_ATTRACT) - AVG(HOURS_PER_ATTRACT)) AS DIFFERENCE  FROM EMPLOYEE NATURAL JOIN HOURS GROUP BY EMPLOYEE.EMP_FNAME;
+ERROR 1055 (42000): Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'themepark.EMPLOYEE.EMP_LNAME' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,(SELECT AVG(HOURS_PER_ATTRACT) AS AVERAGE FROM HOURS) ,(SELECT SUM(HOURS_PER_ATTRACT) - AVG(HOURS_PER_ATTRACT))FROM HOURS AS DIFFERENCE  FROM EMPLOYEE NATURAL JOIN HOURS GROUP BY EMPLOYEE.EMP_FNAME;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM EMPLOYEE NATURAL JOIN HOURS GROUP BY EMPLOYEE.EMP_FNAME' at line 1
+mysql> SELECT EMP_FNAME,EMP_LNAME,DATE_WORKED,AVG(HOURS_PER_ATTRACT) AS AVERAGE ,(SUM(HOURS_PER_ATTRACT) - AVG(HOURS_PER_ATTRACT)) AS DIFFERENCE  FROM EMPLOYEE NATURAL JOIN HOURS GROUP BY EMPLOYEE.EMP_FNAME;
+ERROR 1055 (42000): Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'themepark.EMPLOYEE.EMP_LNAME' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> SELECT TRANSACTION_NO, LINE_NO, LINE_QTY, LINE_PRICE
+    -> FROM SALES_LINE SL
+    -> WHERE SL.LINE_QTY > (SELECT AVG(LINE_QTY)
+    -> FROM SALES_LINE SA
+    -> WHERE SA. TRANSACTION_NO = SL. TRANSACTION_NO);
++----------------+---------+----------+------------+
+| TRANSACTION_NO | LINE_NO | LINE_QTY | LINE_PRICE |
++----------------+---------+----------+------------+
+|          12781 |       1 |        2 |      69.98 |
+|          12785 |       3 |        4 |     139.96 |
+|          34534 |       1 |        4 |     168.40 |
+|          34537 |       1 |        2 |      84.20 |
+|          34540 |       1 |        4 |     168.40 |
++----------------+---------+----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> SELECT PARK_CODE, PARK_NAME, PARK_COUNTRY
+    -> FROM THEMEPARK
+    -> WHERE EXISTS (SELECT PARK_CODE FROM SALES
+    -> WHERE SALES.PARK_CODE = THEMEPARK.PARK_CODE);
++-----------+--------------+--------------+
+| PARK_CODE | PARK_NAME    | PARK_COUNTRY |
++-----------+--------------+--------------+
+| FR1001    | FairyLand    | FR           |
+| UK3452    | PleasureLand | UK           |
+| ZA1342    | GoldTown     | ZA           |
++-----------+--------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> ELECT PARK_CODE, PARK_NAME, PARK_COUNTRY
+    -> FROM THEMEPARK
+    -> WHERE EXISTS (SELECT PARK_CODE FROM SALES
+    -> WHERE SALES.PARK_CODE = THEMEPARK.PARK_CODE);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ELECT PARK_CODE, PARK_NAME, PARK_COUNTRY
+FROM THEMEPARK
+WHERE EXISTS (SELECT PAR' at line 1
+mysql> SELECT PARK_CODE, PARK_NAME, PARK_COUNTRY FROM THEMEPARK WHERE EXISTS (SELECT PARK_CODE FROM SALES WHERE SALES.PARK_CODE = THEMEPARK.PARK_CODE);
++-----------+--------------+--------------+
+| PARK_CODE | PARK_NAME    | PARK_COUNTRY |
++-----------+--------------+--------------+
+| FR1001    | FairyLand    | FR           |
+| UK3452    | PleasureLand | UK           |
+| ZA1342    | GoldTown     | ZA           |
++-----------+--------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT PARK_CODE, PARK_NAME, PARK_COUNTRY FROM THEMEPARK WHERE NOT EXISTS (SELECT PARK_CODE FROM SALES WHERE SALES.PARK_CODE = THEMEPARK.PARK_CODE);
++-----------+---------------+--------------+
+| PARK_CODE | PARK_NAME     | PARK_COUNTRY |
++-----------+---------------+--------------+
+| NL1202    | Efling        | NL           |
+| SP4533    | AdventurePort | SP           |
+| SW2323    | Labyrinthe    | SW           |
+| UK2622    | MiniLand      | UK           |
++-----------+---------------+--------------+
+4 rows in set (0.04 sec)
+
+mysql> SELECT * FROM ATTRACTION
+    -> ;
++------------+-----------------+-------------+------------------+-----------+
+| ATTRACT_NO | ATTRACT_NAME    | ATTRACT_AGE | ATTRACT_CAPACITY | PARK_CODE |
++------------+-----------------+-------------+------------------+-----------+
+|      10034 | ThunderCoaster  |          11 |               34 | FR1001    |
+|      10056 | SpinningTeacups |           4 |               62 | FR1001    |
+|      10067 | FlightToStars   |          11 |               24 | FR1001    |
+|      10078 | Ant-Trap        |          23 |               30 | FR1001    |
+|      10082 | NULL            |          10 |               40 | ZA1342    |
+|      10098 | Carnival        |           3 |              120 | FR1001    |
+|      20056 | 3D-Lego_Show    |           3 |              200 | UK3452    |
+|      30011 | BlackHole2      |          12 |               34 | UK3452    |
+|      30012 | Pirates         |          10 |               42 | UK3452    |
+|      30044 | UnderSeaWord    |           4 |               80 | UK3452    |
+|      98764 | GoldRush        |           5 |               80 | ZA1342    |
++------------+-----------------+-------------+------------------+-----------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT ATTRACT_CAPACITY
+    -> FROM ATTRACTION
+    -> WHERE ATTRACT_CAPACITY <= (SELECT AVG(ATTRACT_CAPACITY) FROM ATTRACTION) ;
++------------------+
+| ATTRACT_CAPACITY |
++------------------+
+|               34 |
+|               62 |
+|               24 |
+|               30 |
+|               40 |
+|               34 |
+|               42 |
++------------------+
+7 rows in set (0.00 sec)
+
+ 
+
