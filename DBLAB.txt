@@ -1,0 +1,215 @@
+﻿mysql> SELECT * FROM TICKET;
++-----------+--------------+-------------+-----------+
+| TICKET_NO | TICKET_PRICE | TICKET_TYPE | PARK_CODE |
++-----------+--------------+-------------+-----------+
+|     11001 |        24.99 | Adult       | SP4533    |
+|     11002 |        14.99 | Child       | SP4533    |
+|     11003 |        10.99 | Senior      | SP4533    |
+|     13001 |        18.99 | Child       | FR1001    |
+|     13002 |        34.99 | Adult       | FR1001    |
+|     13003 |        20.99 | Senior      | FR1001    |
+|     67832 |        18.56 | Child       | ZA1342    |
+|     67833 |        28.67 | Adult       | ZA1342    |
+|     67855 |        12.12 | Senior      | ZA1342    |
+|     88567 |        22.50 | Child       | UK3452    |
+|     88568 |        42.10 | Adult       | UK3452    |
+|     89720 |        10.99 | Senior      | UK3452    |
++-----------+--------------+-------------+-----------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT TICKET_PRICE FROM TICKET 
+    -> WHERE TICKET_TYPE ='CHILD'
+    -> ;
++--------------+
+| TICKET_PRICE |
++--------------+
+|        14.99 |
+|        18.99 |
+|        18.56 |
+|        22.50 |
++--------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT TICKET_PRICE FROM TICKET WHERE TICKET_TYPE ='CHILD';SELECT TICKET_NO, PARK_CODE, TICKET_PRICE
++--------------+
+| TICKET_PRICE |
++--------------+
+|        14.99 |
+|        18.99 |
+|        18.56 |
+|        22.50 |
++--------------+
+4 rows in set (0.00 sec)
+
+    -> FROM TICKET
+    -> WHERE TICKET_PRICE > ALL (SELECT TICKET_PRICE FROM TICKET
+    -> WHERE TICKET_TYPE = 'CHILD');
++-----------+-----------+--------------+
+| TICKET_NO | PARK_CODE | TICKET_PRICE |
++-----------+-----------+--------------+
+|     11001 | SP4533    |        24.99 |
+|     13002 | FR1001    |        34.99 |
+|     67833 | ZA1342    |        28.67 |
+|     88568 | UK3452    |        42.10 |
++-----------+-----------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT TICKET_PRICE FROM TICKET WHERE TICKET_TYPE ='CHILD'
+    -> ;
++--------------+
+| TICKET_PRICE |
++--------------+
+|        14.99 |
+|        18.99 |
+|        18.56 |
+|        22.50 |
++--------------+
+4 rows in set (0.01 sec)
+
+mysql> SELECT TICKET_PRICE,PARK_CODE,TICKET_NO FROM TICKET
+    -> WHERE TICKET_PRICE > ALL (SELECT TICKET_PRICE FROM TICKET WHERE TICKET_TYPE ='CHILD');
++--------------+-----------+-----------+
+| TICKET_PRICE | PARK_CODE | TICKET_NO |
++--------------+-----------+-----------+
+|        24.99 | SP4533    |     11001 |
+|        34.99 | FR1001    |     13002 |
+|        28.67 | ZA1342    |     67833 |
+|        42.10 | UK3452    |     88568 |
++--------------+-----------+-----------+
+
+> SELECT DISTINCT EMP_FNAME,EMP_FNAME FROM EMPLOYEE NATURAL JOIN HOURS 
+    -> WHERE HOUR_RATE >
+    -> (SELECT AVG(HOUR_RATE) FROM HOURS);
++-----------+-----------+
+| EMP_FNAME | EMP_FNAME |
++-----------+-----------+
+| Enrica    | Enrica    |
+| Mirrelle  | Mirrelle  |
++-----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT
+    -> TICKET_NO, TICKET_PRICE,
+    -> (SELECT AVG(TICKET_PRICE) FROM TICKET) AS AVGPRICE,
+    -> TICKET_PRICE - (SELECT AVG(TICKET_PRICE) FROM TICKET) AS DIFF
+    -> FROM TICKET;
++-----------+--------------+-----------+------------+
+| TICKET_NO | TICKET_PRICE | AVGPRICE  | DIFF       |
++-----------+--------------+-----------+------------+
+|     11001 |        24.99 | 21.740000 |   3.250000 |
+|     11002 |        14.99 | 21.740000 |  -6.750000 |
+|     11003 |        10.99 | 21.740000 | -10.750000 |
+|     13001 |        18.99 | 21.740000 |  -2.750000 |
+|     13002 |        34.99 | 21.740000 |  13.250000 |
+|     13003 |        20.99 | 21.740000 |  -0.750000 |
+|     67832 |        18.56 | 21.740000 |  -3.180000 |
+|     67833 |        28.67 | 21.740000 |   6.930000 |
+|     67855 |        12.12 | 21.740000 |  -9.620000 |
+|     88567 |        22.50 | 21.740000 |   0.760000 |
+|     88568 |        42.10 | 21.740000 |  20.360000 |
+|     89720 |        10.99 | 21.740000 | -10.750000 |
++-----------+--------------+-----------+------------+
+12 rows in set (0.00 sec)
+
+mysql> SELCET * FROM TICKET;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELCET * FROM TICKET' at line 1
+mysql> SELECT * FROM TICKET;
++-----------+--------------+-------------+-----------+
+| TICKET_NO | TICKET_PRICE | TICKET_TYPE | PARK_CODE |
++-----------+--------------+-------------+-----------+
+|     11001 |        24.99 | Adult       | SP4533    |
+|     11002 |        14.99 | Child       | SP4533    |
+|     11003 |        10.99 | Senior      | SP4533    |
+|     13001 |        18.99 | Child       | FR1001    |
+|     13002 |        34.99 | Adult       | FR1001    |
+|     13003 |        20.99 | Senior      | FR1001    |
+|     67832 |        18.56 | Child       | ZA1342    |
+|     67833 |        28.67 | Adult       | ZA1342    |
+|     67855 |        12.12 | Senior      | ZA1342    |
+|     88567 |        22.50 | Child       | UK3452    |
+|     88568 |        42.10 | Adult       | UK3452    |
+|     89720 |        10.99 | Senior      | UK3452    |
++-----------+--------------+-------------+-----------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT TICKET_NO, TICKET_PRICE, (SELECT AVG(TICKET_PRICE) FROM TICKET) AS AVGPRICE, TICKET_PRICE - (SELECT AVG(TICKET_PRICE) FROM TICKET) AS DIFF FROM TICKET;
++-----------+--------------+-----------+------------+
+| TICKET_NO | TICKET_PRICE | AVGPRICE  | DIFF       |
++-----------+--------------+-----------+------------+
+|     11001 |        24.99 | 21.740000 |   3.250000 |
+|     11002 |        14.99 | 21.740000 |  -6.750000 |
+|     11003 |        10.99 | 21.740000 | -10.750000 |
+|     13001 |        18.99 | 21.740000 |  -2.750000 |
+|     13002 |        34.99 | 21.740000 |  13.250000 |
+|     13003 |        20.99 | 21.740000 |  -0.750000 |
+|     67832 |        18.56 | 21.740000 |  -3.180000 |
+|     67833 |        28.67 | 21.740000 |   6.930000 |
+|     67855 |        12.12 | 21.740000 |  -9.620000 |
+|     88567 |        22.50 | 21.740000 |   0.760000 |
+|     88568 |        42.10 | 21.740000 |  20.360000 |
+|     89720 |        10.99 | 21.740000 | -10.750000 |
++-----------+--------------+-----------+------------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMPLOYEE;
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+| EMP_NUM | EMP_TITLE | EMP_LNAME  | EMP_FNAME | EMP_DOB    | EMP_HIRE_DATE | EMP_AREA_CODE | EMP_PHONE | PARK_CODE |
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+|     100 | Ms        | Calderdale | Emma      | 1972-06-15 | 1992-03-15    | 0181          | 324-9134  | FR1001    |
+|     101 | Ms        | Ricardo    | Marshel   | 1978-03-19 | 1996-04-25    | 0181          | 324-4472  | UK3452    |
+|     102 | Mr        | Arshad     | Arif      | 1969-11-14 | 1990-12-20    | 7253          | 675-8993  | FR1001    |
+|     103 | Ms        | Roberts    | Anne      | 1974-10-16 | 1994-08-16    | 0181          | 898-3456  | UK3452    |
+|     104 | Mr        | Denver     | Enrica    | 1980-11-08 | 2001-10-20    | 7253          | 504-4434  | ZA1342    |
+|     105 | Ms        | Namowa     | Mirrelle  | 1990-03-14 | 2006-11-08    | 0181          | 890-3243  | FR1001    |
+|     106 | Mrs       | Smith      | Gemma     | 1968-02-12 | 1989-01-05    | 0181          | 324-7845  | ZA1342    |
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT EMP_LNAME,EMP_LNAME, DATE_WORKED FROM EMPLOYEE NATURAL JOIN HOURS;
++------------+------------+-------------+
+| EMP_LNAME  | EMP_LNAME  | DATE_WORKED |
++------------+------------+-------------+
+| Calderdale | Calderdale | 2007-05-18  |
+| Calderdale | Calderdale | 2007-05-20  |
+| Ricardo    | Ricardo    | 2007-05-18  |
+| Arshad     | Arshad     | 2007-05-23  |
+| Arshad     | Arshad     | 2007-05-21  |
+| Arshad     | Arshad     | 2007-05-22  |
+| Denver     | Denver     | 2007-05-21  |
+| Denver     | Denver     | 2007-05-22  |
+| Namowa     | Namowa     | 2007-05-18  |
+| Namowa     | Namowa     | 2007-05-18  |
+| Namowa     | Namowa     | 2007-05-19  |
++------------+------------+-------------+
+11 rows in set (0.01 sec)
+
+
+
+
+
+
+
+mysql> SELECT
+    -> TICKET_NO, TICKET_PRICE,
+    -> (SELECT AVG(TICKET_PRICE) FROM TICKET) AS AVGPRICE,
+    -> TICKET_PRICE - (SELECT AVG(TICKET_PRICE) FROM TICKET) AS DIFF
+    -> FROM TICKET;
++-----------+--------------+-----------+------------+
+| TICKET_NO | TICKET_PRICE | AVGPRICE  | DIFF       |
++-----------+--------------+-----------+------------+
+|     11001 |        24.99 | 21.740000 |   3.250000 |
+|     11002 |        14.99 | 21.740000 |  -6.750000 |
+|     11003 |        10.99 | 21.740000 | -10.750000 |
+|     13001 |        18.99 | 21.740000 |  -2.750000 |
+|     13002 |        34.99 | 21.740000 |  13.250000 |
+|     13003 |        20.99 | 21.740000 |  -0.750000 |
+|     67832 |        18.56 | 21.740000 |  -3.180000 |
+|     67833 |        28.67 | 21.740000 |   6.930000 |
+|     67855 |        12.12 | 21.740000 |  -9.620000 |
+|     88567 |        22.50 | 21.740000 |   0.760000 |
+|     88568 |        42.10 | 21.740000 |  20.360000 |
+|     89720 |        10.99 | 21.740000 | -10.750000 |
++-----------+--------------+-----------+------------+
+12 rows in set (0.00 sec)
+
+mysql> 
