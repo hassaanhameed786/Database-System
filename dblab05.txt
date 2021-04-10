@@ -1,0 +1,143 @@
+﻿CREATE VIEW EMP_WORKED AS  SELECT EMP_LNAME,EMP_FNAME, ATTRACT_NO,DATE_WORKED  FROM EMPLOYEE E NATURAL JOIN HOURS H WHERE  E.EMP_NUM = H.EMP_NUM;
+
+mysql> SELECT * FROM EMP_WORKED;
++------------+-----------+------------+-------------+
+| EMP_LNAME  | EMP_FNAME | ATTRACT_NO | DATE_WORKED |
++------------+-----------+------------+-------------+
+| Calderdale | Emma      |      10034 | 2007-05-18  |
+| Calderdale | Emma      |      10034 | 2007-05-20  |
+| Ricardo    | Marshel   |      10034 | 2007-05-18  |
+| Arshad     | Arif      |      30012 | 2007-05-23  |
+| Arshad     | Arif      |      30044 | 2007-05-21  |
+| Arshad     | Arif      |      30044 | 2007-05-22  |
+| Denver     | Enrica    |      30011 | 2007-05-21  |
+| Denver     | Enrica    |      30012 | 2007-05-22  |
+| Namowa     | Mirrelle  |      10078 | 2007-05-18  |
+| Namowa     | Mirrelle  |      10098 | 2007-05-18  |
+| Namowa     | Mirrelle  |      10098 | 2007-05-19  |
++------------+-----------+------------+-------------+
+11 rows in set (0.00 sec)
+
+
+
+TASK 6.2
+
+SELECT * FROM EMPFR;
+
+mysql> SELECT * FROM EMPFR;
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+| EMP_NUM | EMP_TITLE | EMP_LNAME  | EMP_FNAME | EMP_DOB    | EMP_HIRE_DATE | EMP_AREA_CODE | EMP_PHONE | PARK_CODE |
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+|     100 | Ms        | Calderdale | Emma      | 1972-06-15 | 1992-03-15    | 0181          | 324-9134  | FR1001    |
+|     102 | Mr        | Arshad     | Arif      | 1969-11-14 | 1990-12-20    | 7253          | 675-8993  | FR1001    |
+|     105 | Ms        | Namowa     | Mirrelle  | 1990-03-14 | 2006-11-08    | 0181          | 890-3243  | FR1001    |
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+3 rows in set (0.00 sec)
+TASK 6.3
+
+mysql> UPDATE VIEW EMPFR  SET PARK_CODE 'UK3452' WHERE EMP_NUM =102;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''UK3452' WHERE EMP_NUM =102' at line 1
+mysql> UPDATE VIEW EMPFR  SET PARK_CODE 'UK3452' WHERE EMP_NUM =103;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''UK3452' WHERE EMP_NUM =103' at line 1
+mysql> 
+
+TASK 6.4
+
+mysql> SELECT EMP_FNAME,EMP_FNAME,EMP_DOB, 
+    -> DATE_FORMAT(EMP_DOB, '%B') AS MONTH 
+    -> FROM EMPLOYEE 
+    -> WHERE MONTH(EMP_DOB) ='11';
++-----------+-----------+------------+-------+
+| EMP_FNAME | EMP_FNAME | EMP_DOB    | MONTH |
++-----------+-----------+------------+-------+
+| Arif      | Arif      | 1969-11-14 | B     |
+| Enrica    | Enrica    | 1980-11-08 | B     |
++-----------+-----------+------------+-------+
+2 rows in set (0.02 sec)
+
+
+TASK 6.5
+
+
+mysql> SELECT DATEDIFF('2021-04-10','2009-12-25');
++-------------------------------------+
+| DATEDIFF('2021-04-10','2009-12-25') |
++-------------------------------------+
+|                                4124 |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+TASK 6.6
+
+mysql> SELECT EMP_LNAME, EMP_FNAME, EMP_HIRE_DATE, ADDDATE(EMP_HIRE_DATE, INTERVAL 12 MONTH )AS 'FIRST APPRAISAL' FROM EMPLOYEE;
++------------+-----------+---------------+-----------------+
+| EMP_LNAME  | EMP_FNAME | EMP_HIRE_DATE | FIRST APPRAISAL |
++------------+-----------+---------------+-----------------+
+| Calderdale | Emma      | 1992-03-15    | 1993-03-15      |
+| Ricardo    | Marshel   | 1996-04-25    | 1997-04-25      |
+| Arshad     | Arif      | 1990-12-20    | 1991-12-20      |
+| Roberts    | Anne      | 1994-08-16    | 1995-08-16      |
+| Denver     | Enrica    | 2001-10-20    | 2002-10-20      |
+| Namowa     | Mirrelle  | 2006-11-08    | 2007-11-08      |
+| Smith      | Gemma     | 1989-01-05    | 1990-01-05      |
++------------+-----------+---------------+-----------------+
+7 rows in set (0.02 sec)
+
+
+
+
+
+TASK 6.7
+
+
+
+mysql> SELECT *
+    -> FROM SALES
+    -> WHERE SALE_DATE >= LAST_DAY(SALE_DATE)-20;
++----------------+-----------+------------+
+| TRANSACTION_NO | PARK_CODE | SALE_DATE  |
++----------------+-----------+------------+
+|          12781 | FR1001    | 2007-05-18 |
+|          12782 | FR1001    | 2007-05-18 |
+|          12783 | FR1001    | 2007-05-18 |
+|          12784 | FR1001    | 2007-05-18 |
+|          12785 | FR1001    | 2007-05-18 |
+|          12786 | FR1001    | 2007-05-18 |
+|          34534 | UK3452    | 2007-05-18 |
+|          34535 | UK3452    | 2007-05-18 |
+|          34536 | UK3452    | 2007-05-18 |
+|          34537 | UK3452    | 2007-05-18 |
+|          34538 | UK3452    | 2007-05-18 |
+|          34539 | UK3452    | 2007-05-18 |
+|          34540 | UK3452    | 2007-05-18 |
+|          34541 | UK3452    | 2007-05-18 |
+|          67589 | ZA1342    | 2007-05-18 |
+|          67590 | ZA1342    | 2007-05-18 |
+|          67591 | ZA1342    | 2007-05-18 |
+|          67592 | ZA1342    | 2007-05-18 |
+|          67593 | ZA1342    | 2007-05-18 |
++----------------+-----------+------------+
+19 rows in set (0.05 sec)
+
+mysql> 
+
+TASK 6.8 
+
+mysql> SELECT TRANSACTION_NO, LINE_PRICE, MOD(LINE_PRICE, 10)
+    -> FROM SALES_LINE
+    -> WHERE LINE_QTY > 2;
++----------------+------------+---------------------+
+| TRANSACTION_NO | LINE_PRICE | MOD(LINE_PRICE, 10) |
++----------------+------------+---------------------+
+|          12785 |     139.96 |                9.96 |
+|          34534 |     168.40 |                8.40 |
+|          34540 |     168.40 |                8.40 |
+|          67592 |     114.68 |                4.68 |
++----------------+------------+---------------------+
+4 rows in set (0.06 sec)
+
+mysql> 
+
+
