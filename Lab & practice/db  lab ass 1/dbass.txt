@@ -1,0 +1,794 @@
+﻿mysql> select emp_no, SUM(salary) as "Total Salary" from salaries 
+    -> where emp_no ='100001' or emp_no ='401829' group by emp_no;
++--------+--------------+
+| emp_no | Total Salary |
++--------+--------------+
+| 401829 |       441457 |
++--------+--------------+
+1 row in set (0.06 sec)
+
+mysql> 
+
+^C
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select *, SUM(salary) as "Total Salary" from salaries  where emp_no ='100001' or emp_no ='401829' group by emp_no;
+ERROR 1055 (42000): Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'employees.salaries.salary' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select *, SUM(salary) as "Total Salary" from salaries  where emp_no like'100001' or emp_no like '401829' group by emp_no;
+ERROR 1055 (42000): Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'employees.salaries.salary' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select emp_no, SUM(salary) as "Total Salary" from salaries  where emp_no ='100001' or emp_no ='401829' group by emp_no;
++--------+--------------+
+| emp_no | Total Salary |
++--------+--------------+
+| 401829 |       441457 |
++--------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select emp_no,first_name,last_name,salary from salaries natural join employees
+    -> where salary = (select Min(salary) from salaries);
++--------+------------+-----------+--------+
+| emp_no | first_name | last_name | salary |
++--------+------------+-----------+--------+
+| 401786 | Sachar     | Nicolson  |  38942 |
++--------+------------+-----------+--------+
+1 row in set (0.06 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select emp_no,first_name, last_name,salary from salaries natural join employees
+    -> order by salary desc limit 1,2;
++--------+------------+-----------+--------+
+| emp_no | first_name | last_name | salary |
++--------+------------+-----------+--------+
+| 201777 | Wonhee     | Perl      | 110796 |
+| 401801 | Subhash    | Baek      | 110589 |
++--------+------------+-----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select first_name, last_name,dept_no,dept_name from dept_manager natural
+    -> join employees natural join departments;
++-------------+--------------+---------+--------------------+
+| first_name  | last_name    | dept_no | dept_name          |
++-------------+--------------+---------+--------------------+
+| Tonny       | Butterworth  | d009    | Customer Service   |
+| Marjo       | Giarratana   | d009    | Customer Service   |
+| Xiaobin     | Spinelli     | d009    | Customer Service   |
+| Yuchang     | Weedman      | d009    | Customer Service   |
+| DeForest    | Hagimont     | d005    | Development        |
+| Leon        | DasSarma     | d005    | Development        |
+| Ebru        | Alpin        | d002    | Finance            |
+| Isamu       | Legleitner   | d002    | Finance            |
+| Shirish     | Ossenbruggen | d003    | Human Resources    |
+| Karsten     | Sigstam      | d003    | Human Resources    |
+| Margareta   | Markovitch   | d001    | Marketing          |
+| Vishwani    | Minakawa     | d001    | Marketing          |
+| Krassimir   | Wegerle      | d004    | Production         |
+| Rosine      | Cools        | d004    | Production         |
+| Shem        | Kieras       | d004    | Production         |
+| Oscar       | Ghazalie     | d004    | Production         |
+| Peternela   | Onuegbe      | d006    | Quality Management |
+| Rutger      | Hofmeyr      | d006    | Quality Management |
+| Sanjoy      | Quadeer      | d006    | Quality Management |
+| Dung        | Pesch        | d006    | Quality Management |
+| Arie        | Staelin      | d008    | Research           |
+| Hilary      | Kambil       | d008    | Research           |
+| Przemyslawa | Kaelbling    | d007    | Sales              |
+| Hauke       | Zhang        | d007    | Sales              |
++-------------+--------------+---------+--------------------+
+24 rows in set (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select * from salaries order by salary desc limit 2,1;
++--------+--------+------------+------------+
+| emp_no | salary | from_date  | to_date    |
++--------+--------+------------+------------+
+| 401801 | 110589 | 2000-10-31 | 2001-10-31 |
++--------+--------+------------+------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select * SUM(salary) from salaries where emp_no = '10001' and emp_no='401829' group by emp_no;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SUM(salary) from salaries where emp_no = '10001' and emp_no='401829' group by em' at line 1
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select emp_no, SUM(salary) as "Total Salary" from salaries
+    ->     -> where emp_no ='100001' or emp_no ='401829' group by emp_no;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> where emp_no ='100001' or emp_no ='401829' group by emp_no' at line 2
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select emp_no, SUM(salary) as "Total Salary" from salaries
+    ->     -> where emp_no ='100001' or emp_no ='401829' group by emp_no;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> where emp_no ='100001' or emp_no ='401829' group by emp_no' at line 2
+mysql> select emp_no, SUM(salary) as "Total Salary" from salaries  where emp_no ='100001' or emp_no ='401829' group by emp_no;
++--------+--------------+
+| emp_no | Total Salary |
++--------+--------------+
+| 401829 |       441457 |
++--------+--------------+
+1 row in set (0.01 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> \
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select emp_no, SUM(salary) as "Total Salary" from salaries  where emp_no ='100001' and emp_no ='401829' group by emp_no;
+Empty set (0.00 sec)
+
+mysql> select emp_no, SUM(salary) as "Total Salary" from salaries  where emp_no ='100001' or emp_no ='401829' group by emp_no;
++--------+--------------+
+| emp_no | Total Salary |
++--------+--------------+
+| 401829 |       441457 |
++--------+--------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select emp_no, SUM(salary) as "Total Salary" from salaries  where emp_no ='100001';
++--------+--------------+
+| emp_no | Total Salary |
++--------+--------------+
+|   NULL |         NULL |
++--------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select emp_no, SUM(salary) as "Total Salary" from salaries  where emp_no ='10001';
++--------+--------------+
+| emp_no | Total Salary |
++--------+--------------+
+|  10001 |      1281612 |
++--------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select emp_no, SUM(salary) as "Total Salary" from salaries  where emp_no ='10001' or emp_no ='401829' group by emp_no;
++--------+--------------+
+| emp_no | Total Salary |
++--------+--------------+
+|  10001 |      1281612 |
+| 401829 |       441457 |
++--------+--------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select emp_no,first_name, SUM(salary) as "Total Salary" from salaries  where emp_no ='10001' or emp_no ='401829' group by emp_no;
+ERROR 1054 (42S22): Unknown column 'first_name' in 'field list'
+mysql> select emp_no,salary, SUM(salary) as "Total Salary" from salaries  where emp_no ='10001' or emp_no ='401829' group by emp_no;
+ERROR 1055 (42000): Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'employees.salaries.salary' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select emp_no, SUM(salary) as "Total Salary" from salaries  where emp_no ='10001' or emp_no ='401829' group by emp_no;
++--------+--------------+
+| emp_no | Total Salary |
++--------+--------------+
+|  10001 |      1281612 |
+| 401829 |       441457 |
++--------+--------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select emp_no, SUM(salary) as "Total Salary" from salaries  where emp_no ='10001' or emp_no ='401829' group by emp_no;
++--------+--------------+
+| emp_no | Total Salary |
++--------+--------------+
+|  10001 |      1281612 |
+| 401829 |       441457 |
++--------+--------------+
+2 rows in set (0.00 sec)
+
+mysql> select emp_no,first_name,last_name, salary from salaries natural join employees where salary = (select MIN(salary) from salaries);
++--------+------------+-----------+--------+
+| emp_no | first_name | last_name | salary |
++--------+------------+-----------+--------+
+| 401786 | Sachar     | Nicolson  |  38942 |
++--------+------------+-----------+--------+
+1 row in set (0.01 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select emp_no,first_name,last_name,COUNT(*) as " Emp Depart worked " from dept_emp  
+    -> natural join employee
+    -> group by emp_no 
+    -> having COUNT(*) > 2;
+ERROR 1146 (42S02): Table 'employees.employee' doesn't exist
+mysql> select emp_no,first_name,last_name,COUNT(*) as " Emp Depart worked " from dept_emp   natural join employees group by emp_no  having COUNT(*) > 2;
+Empty set, 1 warning (0.01 sec)
+
+mysql> select emp_no,first_name,last_name,COUNT(*) as " Emp Depart worked " from dept_emp   natural join employees group by emp_no  having COUNT(*) >= 2;
++--------+-------------+---------------+--------------------+
+| emp_no | first_name  | last_name     | Emp Depart worked  |
++--------+-------------+---------------+--------------------+
+|  10010 | Duangkaew   | Piveteau      |                  2 |
+|  10018 | Kazuhide    | Peha          |                  2 |
+|  10029 | Otmar       | Herbst        |                  2 |
+|  10040 | Weiyi       | Meriste       |                  2 |
+|  10050 | Yinghua     | Dredge        |                  2 |
+|  10060 | Breannda    | Billingsley   |                  2 |
+|  10070 | Reuven      | Garigliano    |                  2 |
+|  10080 | Premal      | Baek          |                  2 |
+|  10088 | Jungsoon    | Syrzycki      |                  2 |
+|  10098 | Sreekrishna | Servieres     |                  2 |
+|  10108 | Lunjin      | Giveon        |                  2 |
+|  10116 | Dayanand    | Czap          |                  2 |
+|  10124 | Geraldo     | Marwedel      |                  2 |
+|  10134 | Diederik    | Siprelle      |                  2 |
+|  10144 | Marla       | Brendel       |                  2 |
+|  10155 | Adas        | Nastansky     |                  2 |
+|  10164 | Jagoda      | Braunmuhl     |                  2 |
+|  10172 | Shigeu      | Matzen        |                  2 |
+|  10182 | Moriyoshi   | Merey         |                  2 |
+|  10192 | Mohua       | Falck         |                  2 |
+|  10200 | Vidya       | Awdeh         |                  2 |
+|  10209 | Yolla       | Ellozy        |                  2 |
+|  10219 | Genta       | Kolvik        |                  2 |
+|  10228 | Karoline    | Cesareni      |                  2 |
+|  10238 | Mototsugu   | Gire          |                  2 |
+|  10249 | Marie       | Boreale       |                  2 |
+|  10259 | Susanna     | Vesel         |                  2 |
+|  10268 | Nishit      | Siochi        |                  2 |
+|  10279 | Barton      | Jumpertz      |                  2 |
+|  10287 | Marie       | Pietracaprina |                  2 |
+|  10298 | Dietrich    | DuCasse       |                  2 |
+|  10307 | Nikolaos    | Leaver        |                  2 |
+|  10317 | Arie        | Birge         |                  2 |
+|  10327 | Roded       | Facello       |                  2 |
+|  10335 | Toshimori   | Bahi          |                  2 |
+|  10344 | Uwe         | Garnier       |                  2 |
+|  10354 | Moto        | Kusakari      |                  2 |
+|  10363 | Toshiki     | Muniz         |                  2 |
+|  10374 | Willard     | Rosin         |                  2 |
+|  10382 | Shirish     | Dredge        |                  2 |
+|  10392 | Jiann       | Hainaut       |                  2 |
+|  10403 | Atreyi      | Mungall       |                  2 |
+|  10412 | Masoud      | Fabrizio      |                  2 |
+|  10422 | Greger      | Rubsam        |                  2 |
+|  10430 | Ferdinand   | Chenney       |                  2 |
+|  10440 | Akeel       | Narahara      |                  2 |
+|  10449 | Aleksandar  | Sudkamp       |                  2 |
+|  10459 | Ennio       | Trogemann     |                  2 |
+|  10469 | Munehiko    | Ananiadou     |                  2 |
+|  10478 | Maik        | Ushiama       |                  2 |
+|  10488 | Mihalis     | Heering       |                  2 |
+|  10499 | Maik        | Luft          |                  2 |
+|  10510 | Keung       | Slobodova     |                  2 |
+|  10519 | Yonghoan    | Alencar       |                  2 |
+|  10529 | Ymte        | Yetto         |                  2 |
+|  10538 | Przemyslawa | Falby         |                  2 |
+|  10548 | Ramalingam  | Gunderson     |                  2 |
+|  10557 | Sashi       | Karlin        |                  2 |
+|  10567 | Dietrich    | Journel       |                  2 |
+|  10577 | Ennio       | Schmiedel     |                  2 |
+|  10585 | Sajjad      | Willoner      |                  2 |
+|  10593 | Falguni     | Kenevan       |                  2 |
+|  10604 | Susanna     | Brizzi        |                  2 |
+|  10614 | Gila        | Ozeri         |                  2 |
+|  10623 | Aleksander  | Danlos        |                  2 |
+|  10634 | Nahid       | Chepyzhov     |                  2 |
+|  10644 | Pranas      | Benaini       |                  2 |
+|  10655 | Remko       | Dalton        |                  2 |
+|  10663 | Teunis      | Noriega       |                  2 |
+|  10673 | Hyuckchul   | Casperson     |                  2 |
+|  10681 | Florina     | Garnier       |                  2 |
+|  10690 | Matt        | Jumpertz      |                  2 |
+|  10701 | Hyuncheol   | Zolotykh      |                  2 |
+|  10709 | Jiafu       | Mateescu      |                  2 |
+|  10720 | Odinaldo    | Kruskal       |                  2 |
+|  10730 | Mohit       | Janetzko      |                  2 |
+|  10738 | Rosita      | Oppitz        |                  2 |
+|  10748 | Yuchang     | Francisci     |                  2 |
+|  10756 | Paddy       | Brizzi        |                  2 |
+|  10765 | Goetz       | Norsworthy    |                  2 |
+|  10775 | Xiaoheng    | Sluis         |                  2 |
+|  10786 | Patricia    | dAstous       |                  2 |
+|  10797 | Goetz       | Hiyoshi       |                  2 |
+|  10806 | Giap        | Matzel        |                  2 |
+|  10817 | Uri         | Rullman       |                  2 |
+|  10825 | Fan         | Fairtlough    |                  2 |
+|  10836 | Jianhua     | Leivant       |                  2 |
+|  10846 | Tokuyasu    | Serre         |                  2 |
+|  10855 | Kwangho     | Reinhart      |                  2 |
+|  10865 | Danco       | Etalle        |                  2 |
+|  10874 | Mahmut      | Borstler      |                  2 |
+|  10885 | Rayond      | Cronau        |                  2 |
+|  10895 | Vishwani    | Petersohn     |                  2 |
+|  10906 | Munehiro    | Carrere       |                  2 |
++--------+-------------+---------------+--------------------+
+94 rows in set, 1 warning (0.01 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select emp_no,first_name, last_name,salary from salaries natural join employees
+    -> order by salary desc limit 1,2; 
++--------+------------+-----------+--------+
+| emp_no | first_name | last_name | salary |
++--------+------------+-----------+--------+
+| 201777 | Wonhee     | Perl      | 110796 |
+| 401801 | Subhash    | Baek      | 110589 |
++--------+------------+-----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> select emp_no,first_name, last_name,salary from salaries natural join employees order by salary desc limit 1,2;
++--------+------------+-----------+--------+
+| emp_no | first_name | last_name | salary |
++--------+------------+-----------+--------+
+| 201777 | Wonhee     | Perl      | 110796 |
+| 401801 | Subhash    | Baek      | 110589 |
++--------+------------+-----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select first_name, last_name,dept_no,dept_name from dept_manager natural
+    -> join employees natural join departments;
++-------------+--------------+---------+--------------------+
+| first_name  | last_name    | dept_no | dept_name          |
++-------------+--------------+---------+--------------------+
+| Tonny       | Butterworth  | d009    | Customer Service   |
+| Marjo       | Giarratana   | d009    | Customer Service   |
+| Xiaobin     | Spinelli     | d009    | Customer Service   |
+| Yuchang     | Weedman      | d009    | Customer Service   |
+| DeForest    | Hagimont     | d005    | Development        |
+| Leon        | DasSarma     | d005    | Development        |
+| Ebru        | Alpin        | d002    | Finance            |
+| Isamu       | Legleitner   | d002    | Finance            |
+| Shirish     | Ossenbruggen | d003    | Human Resources    |
+| Karsten     | Sigstam      | d003    | Human Resources    |
+| Margareta   | Markovitch   | d001    | Marketing          |
+| Vishwani    | Minakawa     | d001    | Marketing          |
+| Krassimir   | Wegerle      | d004    | Production         |
+| Rosine      | Cools        | d004    | Production         |
+| Shem        | Kieras       | d004    | Production         |
+| Oscar       | Ghazalie     | d004    | Production         |
+| Peternela   | Onuegbe      | d006    | Quality Management |
+| Rutger      | Hofmeyr      | d006    | Quality Management |
+| Sanjoy      | Quadeer      | d006    | Quality Management |
+| Dung        | Pesch        | d006    | Quality Management |
+| Arie        | Staelin      | d008    | Research           |
+| Hilary      | Kambil       | d008    | Research           |
+| Przemyslawa | Kaelbling    | d007    | Sales              |
+| Hauke       | Zhang        | d007    | Sales              |
++-------------+--------------+---------+--------------------+
+24 rows in set (0.00 sec)
+
+mysql> select first_name, last_name ,emp_no, salary            
+select first_name, last_name ,emp_no, salary  
+^C
+mysql> select emp_no,first_name, last_name,salary from salaries natural join employees order by salary desc limit 1,2;
++--------+------------+-----------+--------+
+| emp_no | first_name | last_name | salary |
++--------+------------+-----------+--------+
+| 201777 | Wonhee     | Perl      | 110796 |
+| 401801 | Subhash    | Baek      | 110589 |
++--------+------------+-----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select emp_no,first_name, last_name,salary from employees natural join salaries order by salary DESC limit 1 offsset 2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'offsset 2' at line 1
+mysql> select emp_no,first_name, last_name,salary from employees natural join salaries order by salary desc limit 1 offsset 2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'offsset 2' at line 1
+mysql> select * from salaries order by salary desc limit 2,1;
++--------+--------+------------+------------+
+| emp_no | salary | from_date  | to_date    |
++--------+--------+------------+------------+
+| 401801 | 110589 | 2000-10-31 | 2001-10-31 |
++--------+--------+------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from salaries natual join employees order by salary desc limit 2,1;
+^C^C -- query aborted
+ERROR 1317 (70100): Query execution was interrupted
+mysql> select emp_no,first_name, last_name,salary from employees natural join salaries order by salary desc limit 1 offsset 2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'offsset 2' at line 1
+mysql> select emp_no,first_name, last_name,salary from employees natural join salaries order by salary desc limit 2,1;
++--------+------------+-----------+--------+
+| emp_no | first_name | last_name | salary |
++--------+------------+-----------+--------+
+| 401801 | Subhash    | Baek      | 110589 |
++--------+------------+-----------+--------+
+1 row in set (0.11 sec)
+
+mysql> select first_name, last_name,dept_no,dept_name from dept_manager natural
+    ->     -> join employees natural join departments;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> join employees natural join departments' at line 2
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select first_name,last_name from employees where hire_date > '1999-12-31';
++-------------+------------+
+| first_name  | last_name  |
++-------------+------------+
+| Ulf         | Flexer     |
+| Seshu       | Rathonyi   |
+| Randi       | Luit       |
+| Mariangiola | Boreale    |
+| Ennio       | Alblas     |
+| Volkmar     | Perko      |
+| Xuejun      | Benzmuller |
+| Shahab      | Demeyer    |
+| Jaana       | Verspoor   |
+| Jeong       | Boreale    |
+| Yucai       | Gerlach    |
+| Bikash      | Covnot     |
+| Hideyuki    | Delgrande  |
++-------------+------------+
+13 rows in set (0.22 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> update titles set title = 'Project Manager' where emp_no = 10004;
+Query OK, 2 rows affected (0.17 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from titles where emp_no='10004';
++--------+-----------------+------------+------------+
+| emp_no | title           | from_date  | to_date    |
++--------+-----------------+------------+------------+
+|  10004 | Project Manager | 1986-12-01 | 1995-12-01 |
+|  10004 | Project Manager | 1995-12-01 | 9999-01-01 |
++--------+-----------------+------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> alter table departments modify dept_name varchar(60) Not Null;
+alter table departments modify dept_name varchar(60) Not Null;
+^C
+mysql> alter table departments modify dept_name varchar(60) Not Null;
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table salaries rename column salary to payslip;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'column salary to payslip' at line 1
+mysql> alter table salaries rename column salary to payslip;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'column salary to payslip' at line 1
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> RENAME TABLE titles to job_description;
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> show tables;
++---------------------+
+| Tables_in_employees |
++---------------------+
+| departments         |
+| dept_emp            |
+| dept_manager        |
+| employees           |
+| job_description     |
+| salaries            |
++---------------------+
+6 rows in set (0.01 sec)
+
+mysql>  alter table salaries rename column salary to payslip;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'column salary to payslip' at line 1
+mysql> alter table salaries rename column salary to payslip;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'column salary to payslip' at line 1
+mysql> select * from salaries  limit 2;
++--------+--------+------------+------------+
+| emp_no | salary | from_date  | to_date    |
++--------+--------+------------+------------+
+|  10001 |  60117 | 1986-06-26 | 1987-06-26 |
+|  10001 |  62102 | 1987-06-26 | 1988-06-25 |
++--------+--------+------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> alter table salaries rename column salary to payslips;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'column salary to payslips' at line 1
+mysql> alter table salaries rename column salary to payslipppppp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'column salary to payslipppppp' at line 1
+mysql> 
