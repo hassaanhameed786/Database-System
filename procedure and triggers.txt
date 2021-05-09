@@ -1,0 +1,460 @@
+﻿mysql> create database person;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use person;
+Database changed
+mysql> create table users(user_id NUMERIC PRIMARY KEY, username VARCHAR(33) NOT NULL, password VARCHAR(13) NOT NULL,email VARHAR(44) NOT NULL);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARHAR(44) NOT NULL)' at line 1
+mysql> create table users(user_id NUMERIC PRIMARY KEY, username VARCHAR(13) NOT NULL, password VARCHAR(13) NOT NULL,email VARHAR(20) NOT NULL ); 
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARHAR(20) NOT NULL )' at line 1
+mysql> create table users( user_id NUMERIC PRIMARY KEY, 
+    ->  username VARCHAR(13) NOT NULL,
+    -> password VARCHAR(13) NOT NULL,
+    -> email VARCHAR(13) NOT NULL,
+    -> add VARCHAR(13) NOT NULL,
+    -> phone NUMERIC(16);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'add VARCHAR(13) NOT NULL,
+phone NUMERIC(16)' at line 5
+mysql> 
+[7]+  Stopped                 mysql -u root -p
+hassaan@hassy:~$ 
+~$ 
+hassaan@hassy:~$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 5.7.33-0ubuntu0.18.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> 
+mysql> 
+mysql> use person
+Database changed
+mysql> 
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create table users( 
+    -> 
+    -> user_id NUMERIC PRIMARY KEY,
+    -> username VARCHAR (23) NOT NULL,
+    -> password VARCHAR (12) NOT NULL,
+    -> email VARCAHR (24) NOT NULL
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARCAHR (24) NOT NULL
+)' at line 6
+mysql> create table users(
+    -> user_id NUMERIC PRIMARY KEY,
+    -> username VARCHAR (23) NOT NULL,
+    -> password VARCHAR (23) NOT NULL,
+    -> email VARCHAR (23) NOT NULL 
+    -> );
+Query OK, 0 rows affected (0.29 sec)
+
+mysql> create table summary(
+    -> id NUMERIC PRIMARY KEY,
+    -> total_users INT NOT NULL,
+    -> Yahoo INT NOT NULL,
+    -> Hotmail INT NOT NULL,
+    -> Gmail INT NOT NULL
+    -> );
+Query OK, 0 rows affected (0.25 sec)
+
+mysql> describe summary;
++-------------+---------------+------+-----+---------+-------+
+| Field       | Type          | Null | Key | Default | Extra |
++-------------+---------------+------+-----+---------+-------+
+| id          | decimal(10,0) | NO   | PRI | NULL    |       |
+| total_users | int(11)       | NO   |     | NULL    |       |
+| Yahoo       | int(11)       | NO   |     | NULL    |       |
+| Hotmail     | int(11)       | NO   |     | NULL    |       |
+| Gmail       | int(11)       | NO   |     | NULL    |       |
++-------------+---------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> describe users;
++----------+---------------+------+-----+---------+-------+
+| Field    | Type          | Null | Key | Default | Extra |
++----------+---------------+------+-----+---------+-------+
+| user_id  | decimal(10,0) | NO   | PRI | NULL    |       |
+| username | varchar(23)   | NO   |     | NULL    |       |
+| password | varchar(23)   | NO   |     | NULL    |       |
+| email    | varchar(23)   | NO   |     | NULL    |       |
++----------+---------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> insert into users(user_id,username,password,email) values (1,'hassaan', 'xyz','hassaanhameed786@yahoo.com');
+ERROR 1406 (22001): Data too long for column 'email' at row 1
+mysql> insert into users(user_id,username,password,email) values (1,'hassaan', 'xyz','hasan@gmail.com');
+Query OK, 1 row affected (0.31 sec)
+
+mysql> insert into users(user_id,username,password,email) values (2,'ammar', 'amar','ammar@yahoo.com');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into summary(id,total_users,Yahoo,Hotmail,Gmail) values(1,2,1,0,1);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> DELIMITER // ;
+mysql> create procedure insert_into_summary(IN id INT,IN total_usr INT , IN yahoo INT,
+    -> IN hotmail INT ,IN gmail INT)
+    -> BEGIN
+    -> insert into summary values(id,total_users,Yahoo,Hotmail,Gmail);
+    -> END //
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call insert_into_summary(2,1,0,0,1) //
+Query OK, 1 row affected (0.06 sec)
+
+mysql> create procedure insert_into_users(In user_id INT, IN username VARCHAR (23),
+    -> IN  password VARCHAR (23), IN 
+    -> email VARCHAR (23))
+    -> begin
+    -> insert into users values(user_id,username,password,email);
+    -> end
+    -> //
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call insert_into_users(3,'M.Hassan','XYZ','hassan@gmail.com') //
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from users //
++---------+----------+----------+------------------+
+| user_id | username | password | email            |
++---------+----------+----------+------------------+
+|       1 | hassaan  | xyz      | hasan@gmail.com  |
+|       2 | ammar    | amar     | ammar@yahoo.com  |
+|       3 | M.Hassan | XYZ      | hassan@gmail.com |
++---------+----------+----------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> create procedure Yahoo_Average(OUT ret_avg Decimal)
+    -> begin
+    -> select avg(Yahoo) into ret_avg from summary;
+    -> end //
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call Yahoo_Average(@OUT) //
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> select @OUT //
++------+
+| @OUT |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+mysql> select min(Gmail) from summary //
++------------+
+| min(Gmail) |
++------------+
+|          1 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> create procedure MIN_GMAIL(OUT ret_min int)
+    -> select min(Gmail) into ret_min from summary;
+    -> end //
+Query OK, 0 rows affected (0.00 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'end' at line 1
+mysql> create procedure MIN_GMAIL(OUT ret_min int)
+    -> begin
+    ->  select min(Gmail) into ret_min from summary;
+    -> end //
+ERROR 1304 (42000): PROCEDURE MIN_GMAIL already exists
+mysql> call MIN_GMAIL(@OUT) //
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select @OUT //
++------+
+| @OUT |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+mysql> create procedure MAX_HOTMAIL (OUT ret_max int )
+    -> begin
+    -> select max(Hotmail) into ret_max from summary;
+    -> end //
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call MAX_HOTMAIL(@OUT) //
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select (@out) //
++--------+
+| (@out) |
++--------+
+|      0 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> create procedure increment_user()
+    -> 
+    -> begin
+    -> update summary set total_users += 1 
+    -> where Yahoo <= Hotmail;
+    -> end //
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '+= 1 
+where Yahoo <= Hotmail;
+end' at line 4
+mysql> create procedure increment_user()
+    -> begin 
+    -> update summary set total_users = total_users + 1 
+    -> where Yahoo <= Hotmail;
+    -> end //
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call increment_user()
+    -> //
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from summary //
++----+-------------+-------+---------+-------+
+| id | total_users | Yahoo | Hotmail | Gmail |
++----+-------------+-------+---------+-------+
+|  1 |           2 |     1 |       0 |     1 |
+|  2 |           1 |     0 |       0 |     1 |
++----+-------------+-------+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> update summary set Yahoo = 0
+    -> where id =1 
+    -> //
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> 
+mysql> select * from summary 
+    -> //
++----+-------------+-------+---------+-------+
+| id | total_users | Yahoo | Hotmail | Gmail |
++----+-------------+-------+---------+-------+
+|  1 |           2 |     0 |       0 |     1 |
+|  2 |           1 |     0 |       0 |     1 |
++----+-------------+-------+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> call increment_user()
+    -> //
+Query OK, 2 rows affected (0.06 sec)
+
+mysql> select * from summary
+    -> //
++----+-------------+-------+---------+-------+
+| id | total_users | Yahoo | Hotmail | Gmail |
++----+-------------+-------+---------+-------+
+|  1 |           3 |     0 |       0 |     1 |
+|  2 |           2 |     0 |       0 |     1 |
++----+-------------+-------+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> call increment_user()
+    -> //
+Query OK, 2 rows affected (0.05 sec)
+
+mysql> select * from summary
+    -> //
++----+-------------+-------+---------+-------+
+| id | total_users | Yahoo | Hotmail | Gmail |
++----+-------------+-------+---------+-------+
+|  1 |           4 |     0 |       0 |     1 |
+|  2 |           3 |     0 |       0 |     1 |
++----+-------------+-------+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> select * from summary //
++----+-------------+-------+---------+-------+
+| id | total_users | Yahoo | Hotmail | Gmail |
++----+-------------+-------+---------+-------+
+|  1 |           4 |     0 |       0 |     1 |
+|  2 |           3 |     0 |       0 |     1 |
++----+-------------+-------+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> 
+
+
+
+mysql> 
+mysql> 
+mysql> select * from summary //
++----+-------------+-------+---------+-------+
+| id | total_users | Yahoo | Hotmail | Gmail |
++----+-------------+-------+---------+-------+
+|  1 |           4 |     0 |       0 |     1 |
+|  2 |           3 |     0 |       0 |     1 |
++----+-------------+-------+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> create trigger insert_into_user_trigger after insert
+    -> on users
+    -> for each row 
+    -> begin
+    -> update summary set total_users = total_users +1;
+    -> end //
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> select count(*) from users //
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> insert into users values(4,'mohammad omer', 'omr','omar@gmail.com') //
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from summary //
++----+-------------+-------+---------+-------+
+| id | total_users | Yahoo | Hotmail | Gmail |
++----+-------------+-------+---------+-------+
+|  1 |           5 |     0 |       0 |     1 |
+|  2 |           4 |     0 |       0 |     1 |
++----+-------------+-------+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select count(*) from users //
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> =mysql>  
+mysql> ~mysql> 
+mysql> select count(*) from summary //
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from users //
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.00 sec)
+
+ 
+mysql> 
+mysql> select count(*) from users //
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select * from summary //
++----+-------------+-------+---------+-------+
+| id | total_users | Yahoo | Hotmail | Gmail |
++----+-------------+-------+---------+-------+
+|  1 |           5 |     0 |       0 |     1 |
+|  2 |           4 |     0 |       0 |     1 |
++----+-------------+-------+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select count(*) from users //
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> /* now we are deleting */
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> create trigger delete_into_user_trigger after delete 
+    -> on users
+    -> for each row 
+    -> begin 
+    -> update summary set total_users = total_users -1
+    -> 
+    -> ; 
+    -> end //
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> delete from users where user_id = 1 //
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from summary //
++----+-------------+-------+---------+-------+
+| id | total_users | Yahoo | Hotmail | Gmail |
++----+-------------+-------+---------+-------+
+|  1 |           4 |     0 |       0 |     1 |
+|  2 |           3 |     0 |       0 |     1 |
++----+-------------+-------+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> delete from users where user_id = 2 //
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from summary //
++----+-------------+-------+---------+-------+
+| id | total_users | Yahoo | Hotmail | Gmail |
++----+-------------+-------+---------+-------+
+|  1 |           3 |     0 |       0 |     1 |
+|  2 |           2 |     0 |       0 |     1 |
++----+-------------+-------+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert into users values(5,'hassy','asadsa','hasy@gmail.com');
+    -> //
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into users values(6,'makk','asaddsa','makk@gmail.com') //
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into users values(7,'talhaa','talll','talhach@gmail.com') //
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into users values(8,'M.Junaid','janid','junaid@gmail.com') //
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into users values(9,'M.huzaifa','hhh','hhh@gmail.com') //
+Query OK, 1 row affected (0.05 sec)
+
+mysql> delete from users where user_id =9 //
+Query OK, 1 row affected (0.08 sec)
+
+mysql> delete from users where user_id =8 //
+Query OK, 1 row affected (0.05 sec)
+
+mysql> delete from users where user_id =7 //
+Query OK, 1 row affected (0.06 sec)
+
+mysql> delete from users where user_id =5 //
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select count(*) from summary ;
+    -> //
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> 
