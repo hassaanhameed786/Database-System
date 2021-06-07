@@ -775,3 +775,51 @@ WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
 }
 Type "it" for more
 > 
+> db.citites.deleteMany({country: "PK",timezone: "Asia/Karachi"})
+{ "acknowledged" : true, "deletedCount" : 0 }
+
+
+
+> db.moviepeople_1000.find({"info.birthname":"Freeman, Crispin McDougal"}).pretty()
+{
+	"_id" : ObjectId("60bd4056a4cda2300415f8d5"),
+	"person-name" : "Freeman, Crispin",
+	"info" : {
+		"quotes" : [
+			"On advice to aspiring voice-over actors: For myself, I'm in the favor of the more versatile kind of voice who can do all sorts of roles and transform. But to do that you have to have chops, and the best way to get them is through the classics, especially Shakespeare. It teaches you a lot about breathing, and idea and intention and rhythm. He's written the characters into the very poetry of the language, and if you try to get into and match his poetry it will take you out of your normal language patterns and that's the beginning of creating a character, not playing your mundane, everyday self. It's so verbally based, and in voice-acting, all you've got is your voice."
+		],
+		"trivia" : [
+			"Said he was a little nervous about taking on the role of Zelgadis in Slayers because the character had already been voiced by someone else. When it came to reinterpretting the character, he said he thought that Zelgadis had more of an axe to grind.",
+			"Fluent in English and Spanish.",
+			"Is a big fan of authors 'William Shakespeare (I)' (qv), 'J.R.R. Tolkien' (qv), 'Joseph Campbell (III)' (qv), 'Marshall McLuhan' (qv), and 'William Gibson (II)' (qv).",
+			"Is a big fan of anime creators 'Hayao Miyazaki' (qv) and 'Osamu Tezuka (I)' (qv).",
+			"Frequently does voice overs for various union and non-union voice production companies for some video games and mostly animes.",
+			"Has a younger brother, 'Clark Freeman' (qv), and a younger sister, 'Cassidy Freeman' (qv).",
+			"Graduated from Williams College with a B.A. in theater & a minor in computer science",
+			"Graduated from Columbia University with an M.F.A. in acting",
+			"Is one of the only English-speaking voice actors to voice the same character of all Xenosaga video game series. Crispin was the only voice actor to provide the English voice of Albedo and Gaignun Kukai of the series.",
+			"On August 11, 2007, he married 'Izobel Carol' (qv) on The Big Island of Hawaii.",
+			"He and Veronica Taylor both came to the anime Slayers series as replacements - she replaced Joani Baker as Amelia and he replaced Daniel Cronin as Zelgadis."
+		],
+		"minibiography" : [
+			"Crispin is the oldest of three. He has a younger brother, Clark, and youngest sister, Cassidy. All three attended the Latin School of Chicago, where Crispin graduated in a class of 60 in 1990. Crispin had a Mac in 1985. To this day he is still an avid computer geek. He played no official team sports in school, but participated in ad hoc football played in Lincoln Park. Crispin was an active participant in many school plays both on and behind stage. He's also a genuinely nice and humble person."
+		],
+		"birthnotes" : [
+			"Chicago, Illinois, USA"
+		],
+		"birthdate" : [
+			"9 February 1972"
+		],
+		"height" : [
+			"6' 2"
+		],
+		"spouse" : [
+			"'Izobel Carol' (qv) (11 August 2007 - present)"
+		],
+		"birthname" : [
+			"Freeman, Crispin McDougal"
+		]
+	}
+}
+> 
+
