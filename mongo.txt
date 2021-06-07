@@ -1,0 +1,777 @@
+﻿hassaan@bit ~ % mongo
+MongoDB shell version v3.6.3
+connecting to: mongodb://127.0.0.1:27017
+MongoDB server version: 3.6.3
+Server has startup warnings: 
+2021-06-07T21:47:06.880+0500 I STORAGE  [initandlisten] 
+2021-06-07T21:47:06.880+0500 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2021-06-07T21:47:06.880+0500 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2021-06-07T21:47:10.870+0500 I CONTROL  [initandlisten] 
+2021-06-07T21:47:10.870+0500 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-06-07T21:47:10.870+0500 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-06-07T21:47:10.870+0500 I CONTROL  [initandlisten] 
+> 
+> show dbs
+admin       0.000GB
+config      0.000GB
+local       0.000GB
+nuces_fast  0.000GB
+p1761576A   0.008GB
+> 
+> use p1761576A
+switched to db p1761576A
+> 
+> 
+> db
+p1761576A
+> show collections
+cities
+moviepeople_1000
+users
+> 
+> db.cities.fin().pretty()
+2021-06-08T01:08:57.934+0500 E QUERY    [thread1] TypeError: db.cities.fin is not a function :
+@(shell):1:1
+> db.cities.find().pretty()
+{
+	"_id" : ObjectId("60bd4038a4cda23004146ef7"),
+	"name" : "Sant Julià de Lòria",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 8022,
+	"location" : {
+		"longitude" : 42.46372,
+		"latitude" : 1.49129
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146ef8"),
+	"name" : "Pas de la Casa",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 2363,
+	"location" : {
+		"longitude" : 42.54277,
+		"latitude" : 1.73361
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146ef9"),
+	"name" : "Ordino",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 3066,
+	"location" : {
+		"longitude" : 42.55623,
+		"latitude" : 1.53319
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146efa"),
+	"name" : "les Escaldes",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 15853,
+	"location" : {
+		"longitude" : 42.50729,
+		"latitude" : 1.53414
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146efb"),
+	"name" : "la Massana",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 7211,
+	"location" : {
+		"longitude" : 42.54499,
+		"latitude" : 1.51483
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146efc"),
+	"name" : "Encamp",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 11223,
+	"location" : {
+		"longitude" : 42.53333,
+		"latitude" : 1.58333
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146efd"),
+	"name" : "Canillo",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 3292,
+	"location" : {
+		"longitude" : 42.56667,
+		"latitude" : 1.6
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146efe"),
+	"name" : "Arinsal",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 1419,
+	"location" : {
+		"longitude" : 42.57205,
+		"latitude" : 1.48453
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146eff"),
+	"name" : "Andorra la Vella",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 20430,
+	"location" : {
+		"longitude" : 42.50779,
+		"latitude" : 1.52109
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f00"),
+	"name" : "Umm al Qaywayn",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 44411,
+	"location" : {
+		"longitude" : 25.56528,
+		"latitude" : 55.55333
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f01"),
+	"name" : "Ra's al Khaymah",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 115949,
+	"location" : {
+		"longitude" : 25.79111,
+		"latitude" : 55.94278
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f02"),
+	"name" : "Muzayri‘",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 10000,
+	"location" : {
+		"longitude" : 23.13861,
+		"latitude" : 53.78722
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f03"),
+	"name" : "Khawr Fakkān",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 33575,
+	"location" : {
+		"longitude" : 25.33917,
+		"latitude" : 56.35611
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f04"),
+	"name" : "Dubai",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 1137347,
+	"location" : {
+		"longitude" : 25.25222,
+		"latitude" : 55.28
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f05"),
+	"name" : "Dibā",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 26395,
+	"location" : {
+		"longitude" : 25.61667,
+		"latitude" : 56.26667
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f06"),
+	"name" : "Sharjah",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 543733,
+	"location" : {
+		"longitude" : 25.36222,
+		"latitude" : 55.39111
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f07"),
+	"name" : "Ar Ruways",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 16000,
+	"location" : {
+		"longitude" : 24.11028,
+		"latitude" : 52.73056
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f08"),
+	"name" : "Al Fujayrah",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 62415,
+	"location" : {
+		"longitude" : 25.12306,
+		"latitude" : 56.3375
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f09"),
+	"name" : "Al ‘Ayn",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 408733,
+	"location" : {
+		"longitude" : 24.19167,
+		"latitude" : 55.76056
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f0a"),
+	"name" : "`Ajmān",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 226172,
+	"location" : {
+		"longitude" : 25.41111,
+		"latitude" : 55.43504
+	}
+}
+Type "it" for more
+> db.cities.find( { timezone:"Africa/Harare"})
+{ "_id" : ObjectId("60bd403fa4cda2300415f4b5"), "name" : "Zvishavane", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 35896, "location" : { "latitude" : -20.32674, "longitude" : 30.06648 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4b6"), "name" : "Victoria Falls", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 35761, "location" : { "latitude" : -17.92353, "longitude" : 25.84299 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4b7"), "name" : "Shurugwi", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 17075, "location" : { "latitude" : -19.67016, "longitude" : 30.00589 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4b8"), "name" : "Shangani", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 3835, "location" : { "latitude" : -19.78333, "longitude" : 29.36667 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4b9"), "name" : "Shamva", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 10317, "location" : { "latitude" : -17.31159, "longitude" : 31.57561 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4ba"), "name" : "Rusape", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 29292, "location" : { "latitude" : -18.52785, "longitude" : 32.12843 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4bb"), "name" : "Redcliff", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 33197, "location" : { "latitude" : -19.03333, "longitude" : 29.78333 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4bc"), "name" : "Raffingora", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 1957, "location" : { "latitude" : -17.03333, "longitude" : 30.43333 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4bd"), "name" : "Plumtree", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 2148, "location" : { "latitude" : -20.48333, "longitude" : 27.81667 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4be"), "name" : "Penhalonga", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 7681, "location" : { "latitude" : -18.89112, "longitude" : 32.69781 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4bf"), "name" : "Odzi", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 3438, "location" : { "latitude" : -18.96167, "longitude" : 32.40557 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4c0"), "name" : "Nyazura", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 2110, "location" : { "latitude" : -18.70587, "longitude" : 32.16796 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4c1"), "name" : "Nyanga", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 4852, "location" : { "latitude" : -18.21667, "longitude" : 32.75 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4c2"), "name" : "Norton", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 52054, "location" : { "latitude" : -17.88333, "longitude" : 30.7 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4c3"), "name" : "Mvurwi", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 7970, "location" : { "latitude" : -17.03333, "longitude" : 30.85 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4c4"), "name" : "Mvuma", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 4331, "location" : { "latitude" : -19.27924, "longitude" : 30.52828 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4c5"), "name" : "Mutoko", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 9532, "location" : { "latitude" : -17.39699, "longitude" : 32.22677 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4c6"), "name" : "Mutare", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 184205, "location" : { "latitude" : -18.9707, "longitude" : 32.67086 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4c7"), "name" : "Murehwa", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 8559, "location" : { "latitude" : -17.64322, "longitude" : 31.784 } }
+{ "_id" : ObjectId("60bd403fa4cda2300415f4c8"), "name" : "Mount Darwin", "country" : "ZW", "timezone" : "Africa/Harare", "population" : 6349, "location" : { "latitude" : -16.77251, "longitude" : 31.58381 } }
+Type "it" for more
+> db.cities.find( { timezone:"Africa/Harare"}).pretty()
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4b5"),
+	"name" : "Zvishavane",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 35896,
+	"location" : {
+		"latitude" : -20.32674,
+		"longitude" : 30.06648
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4b6"),
+	"name" : "Victoria Falls",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 35761,
+	"location" : {
+		"latitude" : -17.92353,
+		"longitude" : 25.84299
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4b7"),
+	"name" : "Shurugwi",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 17075,
+	"location" : {
+		"latitude" : -19.67016,
+		"longitude" : 30.00589
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4b8"),
+	"name" : "Shangani",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 3835,
+	"location" : {
+		"latitude" : -19.78333,
+		"longitude" : 29.36667
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4b9"),
+	"name" : "Shamva",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 10317,
+	"location" : {
+		"latitude" : -17.31159,
+		"longitude" : 31.57561
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4ba"),
+	"name" : "Rusape",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 29292,
+	"location" : {
+		"latitude" : -18.52785,
+		"longitude" : 32.12843
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4bb"),
+	"name" : "Redcliff",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 33197,
+	"location" : {
+		"latitude" : -19.03333,
+		"longitude" : 29.78333
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4bc"),
+	"name" : "Raffingora",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 1957,
+	"location" : {
+		"latitude" : -17.03333,
+		"longitude" : 30.43333
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4bd"),
+	"name" : "Plumtree",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 2148,
+	"location" : {
+		"latitude" : -20.48333,
+		"longitude" : 27.81667
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4be"),
+	"name" : "Penhalonga",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 7681,
+	"location" : {
+		"latitude" : -18.89112,
+		"longitude" : 32.69781
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4bf"),
+	"name" : "Odzi",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 3438,
+	"location" : {
+		"latitude" : -18.96167,
+		"longitude" : 32.40557
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4c0"),
+	"name" : "Nyazura",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 2110,
+	"location" : {
+		"latitude" : -18.70587,
+		"longitude" : 32.16796
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4c1"),
+	"name" : "Nyanga",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 4852,
+	"location" : {
+		"latitude" : -18.21667,
+		"longitude" : 32.75
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4c2"),
+	"name" : "Norton",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 52054,
+	"location" : {
+		"latitude" : -17.88333,
+		"longitude" : 30.7
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4c3"),
+	"name" : "Mvurwi",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 7970,
+	"location" : {
+		"latitude" : -17.03333,
+		"longitude" : 30.85
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4c4"),
+	"name" : "Mvuma",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 4331,
+	"location" : {
+		"latitude" : -19.27924,
+		"longitude" : 30.52828
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4c5"),
+	"name" : "Mutoko",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 9532,
+	"location" : {
+		"latitude" : -17.39699,
+		"longitude" : 32.22677
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4c6"),
+	"name" : "Mutare",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 184205,
+	"location" : {
+		"latitude" : -18.9707,
+		"longitude" : 32.67086
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4c7"),
+	"name" : "Murehwa",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 8559,
+	"location" : {
+		"latitude" : -17.64322,
+		"longitude" : 31.784
+	}
+}
+{
+	"_id" : ObjectId("60bd403fa4cda2300415f4c8"),
+	"name" : "Mount Darwin",
+	"country" : "ZW",
+	"timezone" : "Africa/Harare",
+	"population" : 6349,
+	"location" : {
+		"latitude" : -16.77251,
+		"longitude" : 31.58381
+	}
+}
+Type "it" for more
+> db.cities.find( { population:"12985000."}).pretty()
+> db.cities.find( { population:{$gt: 12985000 }}).pretty()
+{
+	"_id" : ObjectId("60bd4038a4cda230041471da"),
+	"name" : "Buenos Aires",
+	"country" : "AR",
+	"timezone" : "America/Argentina/Buenos_Aires",
+	"population" : 13076300,
+	"location" : {
+		"latitude" : -34.61315,
+		"longitude" : -58.37723
+	}
+}
+{
+	"_id" : ObjectId("60bd4039a4cda230041495cb"),
+	"name" : "Shanghai",
+	"country" : "CN",
+	"timezone" : "Asia/Shanghai",
+	"population" : 14608512,
+	"location" : {
+		"longitude" : 31.22222,
+		"latitude" : 121.45806
+	}
+}
+> db.cities.find( { location: -58.37723})
+> db.cities.find( { location: {longitude:-58.37723}})
+> db.cities.find( { location.longitude: {$eq: -58.37723}} )
+2021-06-08T01:34:16.895+0500 E QUERY    [thread1] SyntaxError: missing : after property id @(shell):1:26
+> db.cities.find( {"location.longitude": {$eq: -58.37723}} )
+{ "_id" : ObjectId("60bd4038a4cda230041471da"), "name" : "Buenos Aires", "country" : "AR", "timezone" : "America/Argentina/Buenos_Aires", "population" : 13076300, "location" : { "latitude" : -34.61315, "longitude" : -58.37723 } }
+> db.cities.find( {"location.longitude": {$eq: -58.37723}} ).pretty()
+{
+	"_id" : ObjectId("60bd4038a4cda230041471da"),
+	"name" : "Buenos Aires",
+	"country" : "AR",
+	"timezone" : "America/Argentina/Buenos_Aires",
+	"population" : 13076300,
+	"location" : {
+		"latitude" : -34.61315,
+		"longitude" : -58.37723
+	}
+}
+> db.cities.update( {country: "PK", location.latitude: 
+... 
+... "'"
+... ;
+... )
+... }
+2021-06-08T01:48:02.140+0500 E QUERY    [thread1] SyntaxError: missing : after property id @(shell):1:42
+> db.cities.update( {country: "PK", "location.latitude" :{#eq: 73.21122}, population: {$eq: 35000}},
+... {$set: {population:55000}})
+2021-06-08T01:50:49.673+0500 E QUERY    [thread1] SyntaxError: illegal character @(shell):1:56
+> db.cities.update( {country: "PK", "location.latitude" :{$eq: 73.21122}, population: {$eq: 35000}}, {$set: {population:55000}})
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+> db.cities.find().pretty()
+{
+	"_id" : ObjectId("60bd4038a4cda23004146ef7"),
+	"name" : "Sant Julià de Lòria",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 8022,
+	"location" : {
+		"longitude" : 42.46372,
+		"latitude" : 1.49129
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146ef8"),
+	"name" : "Pas de la Casa",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 2363,
+	"location" : {
+		"longitude" : 42.54277,
+		"latitude" : 1.73361
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146ef9"),
+	"name" : "Ordino",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 3066,
+	"location" : {
+		"longitude" : 42.55623,
+		"latitude" : 1.53319
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146efa"),
+	"name" : "les Escaldes",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 15853,
+	"location" : {
+		"longitude" : 42.50729,
+		"latitude" : 1.53414
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146efb"),
+	"name" : "la Massana",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 7211,
+	"location" : {
+		"longitude" : 42.54499,
+		"latitude" : 1.51483
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146efc"),
+	"name" : "Encamp",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 11223,
+	"location" : {
+		"longitude" : 42.53333,
+		"latitude" : 1.58333
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146efd"),
+	"name" : "Canillo",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 3292,
+	"location" : {
+		"longitude" : 42.56667,
+		"latitude" : 1.6
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146efe"),
+	"name" : "Arinsal",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 1419,
+	"location" : {
+		"longitude" : 42.57205,
+		"latitude" : 1.48453
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146eff"),
+	"name" : "Andorra la Vella",
+	"country" : "AD",
+	"timezone" : "Europe/Andorra",
+	"population" : 20430,
+	"location" : {
+		"longitude" : 42.50779,
+		"latitude" : 1.52109
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f00"),
+	"name" : "Umm al Qaywayn",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 44411,
+	"location" : {
+		"longitude" : 25.56528,
+		"latitude" : 55.55333
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f01"),
+	"name" : "Ra's al Khaymah",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 115949,
+	"location" : {
+		"longitude" : 25.79111,
+		"latitude" : 55.94278
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f02"),
+	"name" : "Muzayri‘",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 10000,
+	"location" : {
+		"longitude" : 23.13861,
+		"latitude" : 53.78722
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f03"),
+	"name" : "Khawr Fakkān",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 33575,
+	"location" : {
+		"longitude" : 25.33917,
+		"latitude" : 56.35611
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f04"),
+	"name" : "Dubai",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 1137347,
+	"location" : {
+		"longitude" : 25.25222,
+		"latitude" : 55.28
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f05"),
+	"name" : "Dibā",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 26395,
+	"location" : {
+		"longitude" : 25.61667,
+		"latitude" : 56.26667
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f06"),
+	"name" : "Sharjah",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 543733,
+	"location" : {
+		"longitude" : 25.36222,
+		"latitude" : 55.39111
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f07"),
+	"name" : "Ar Ruways",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 16000,
+	"location" : {
+		"longitude" : 24.11028,
+		"latitude" : 52.73056
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f08"),
+	"name" : "Al Fujayrah",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 62415,
+	"location" : {
+		"longitude" : 25.12306,
+		"latitude" : 56.3375
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f09"),
+	"name" : "Al ‘Ayn",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 408733,
+	"location" : {
+		"longitude" : 24.19167,
+		"latitude" : 55.76056
+	}
+}
+{
+	"_id" : ObjectId("60bd4038a4cda23004146f0a"),
+	"name" : "`Ajmān",
+	"country" : "AE",
+	"timezone" : "Asia/Dubai",
+	"population" : 226172,
+	"location" : {
+		"longitude" : 25.41111,
+		"latitude" : 55.43504
+	}
+}
+Type "it" for more
+> 
