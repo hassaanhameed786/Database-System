@@ -1,0 +1,85 @@
+id,Year,State,Source of Energy,Unit,Value
+1,2005-06,South Australia,Wind,Percent of regional output,2.8
+2,2005-06,Tasmania,Wind,Percent of regional output,1.2
+3,2005-06,Victoria,Wind,Percent of regional output,0.13
+4,2006-07,South Australia,Wind,Percent of regional output,6.6
+5,2006-07,Tasmania,Wind,Percent of regional output,1.5
+6,2006-07,Victoria,Wind,Percent of regional output,0.43
+7,2007-08,South Australia,Wind,Percent of regional output,9.21
+8,2007-08,Tasmania,Wind,Percent of regional output,3.88
+9,2007-08,Victoria,Wind,Percent of regional output,0.41
+10,2008-09,New South Wales,Wind,Percent of regional output,0.01
+11,2008-09,South Australia,Wind,Percent of regional output,14.06
+12,2008-09,Tasmania,Wind,Percent of regional output,5.6
+13,2008-09,Victoria,Wind,Percent of regional output,0.49
+14,2009-10,New South Wales,Wind,Percent of regional output,0.56
+15,2009-10,South Australia,Wind,Percent of regional output,17.33
+16,2009-10,Tasmania,Wind,Percent of regional output,4.86
+17,2009-10,Victoria,Wind,Percent of regional output,1.98
+18,2010-11,New South Wales,Wind,Percent of regional output,0.73
+19,2010-11,South Australia,Wind,Percent of regional output,21.77
+20,2010-11,Tasmania,Wind,Percent of regional output,4.13
+21,2010-11,Victoria,Wind,Percent of regional output,2.01
+22,2011-12,New South Wales,Wind,Percent of regional output,0.99
+23,2011-12,South Australia,Wind,Percent of regional output,27.49
+24,2011-12,Tasmania,Wind,Percent of regional output,4.45
+25,2011-12,Victoria,Wind,Percent of regional output,2.43
+26,2012-13,New South Wales,Wind,Percent of regional output,1.12
+27,2012-13,South Australia,Wind,Percent of regional output,27.77
+28,2012-13,Tasmania,Wind,Percent of regional output,3.8
+29,2012-13,Victoria,Wind,Percent of regional output,3.68
+30,2013-14,New South Wales,Wind,Percent of regional output,1.26
+31,2013-14,South Australia,Wind,Percent of regional output,34.78
+32,2013-14,Tasmania,Wind,Percent of regional output,7.41
+33,2013-14,Victoria,Wind,Percent of regional output,5.13
+34,2014-15,New South Wales,Solar,Percent of regional output,0.05
+35,2014-15,New South Wales,Wind,Percent of regional output,1.93
+36,2014-15,South Australia,Wind,Percent of regional output,36.83
+37,2014-15,Tasmania,Wind,Percent of regional output,10.81
+38,2014-15,Victoria,Wind,Percent of regional output,5.23
+39,2015-16,New South Wales,Solar,Percent of regional output,0.56
+40,2015-16,New South Wales,Wind,Percent of regional output,2.87
+41,2015-16,South Australia,Wind,Percent of regional output,37.68
+42,2015-16,Tasmania,Wind,Percent of regional output,10.27
+43,2015-16,Victoria,Wind,Percent of regional output,5.95
+44,2016-17,New South Wales,Solar,Percent of regional output,0.86
+45,2016-17,Queensland,Solar,Percent of regional output,0.03
+46,2016-17,New South Wales,Wind,Percent of regional output,2.87
+47,2016-17,South Australia,Wind,Percent of regional output,43.18
+48,2016-17,Tasmania,Wind,Percent of regional output,10.49
+49,2016-17,Victoria,Wind,Percent of regional output,6.43
+50,2017-18,New South Wales,Solar,Percent of regional output,1
+51,2017-18,Queensland,Solar,Percent of regional output,0.22
+52,2017-18,South Australia,Solar,Percent of regional output,0.03
+53,2017-18,Victoria,Solar,Percent of regional output,0.02
+54,2017-18,New South Wales,Wind,Percent of regional output,3.15
+55,2017-18,South Australia,Wind,Percent of regional output,43.01
+56,2017-18,Tasmania,Wind,Percent of regional output,9.96
+57,2017-18,Victoria,Wind,Percent of regional output,8.63
+58,2018-19,New South Wales,Solar,Percent of regional output,1.82
+59,2018-19,Queensland,Solar,Percent of regional output,2.51
+60,2018-19,South Australia,Solar,Percent of regional output,2.34
+61,2018-19,Victoria,Solar,Percent of regional output,0.88
+62,2018-19,New South Wales,Wind,Percent of regional output,5.64
+63,2018-19,Queensland,Wind,Percent of regional output,0.61
+64,2018-19,South Australia,Wind,Percent of regional output,44.23
+65,2018-19,Tasmania,Wind,Percent of regional output,9.87
+66,2018-19,Victoria,Wind,Percent of regional output,10.33
+67,2019-20,New South Wales,Solar,Percent of regional output,2.72
+68,2019-20,Queensland,Solar,Percent of regional output,5.22
+69,2019-20,South Australia,Solar,Percent of regional output,3.83
+70,2019-20,Victoria,Solar,Percent of regional output,1.55
+71,2019-20,New South Wales,Wind,Percent of regional output,7.11
+72,2019-20,Queensland,Wind,Percent of regional output,1.51
+73,2019-20,South Australia,Wind,Percent of regional output,45.95
+74,2019-20,Tasmania,Wind,Percent of regional output,11.82
+75,2019-20,Victoria,Wind,Percent of regional output,12.66
+76,2020-21,New South Wales,Solar,Percent of regional output,4.52
+77,2020-21,Queensland,Solar,Percent of regional output,5.44
+78,2020-21,South Australia,Solar,Percent of regional output,5.73
+79,2020-21,Victoria,Solar,Percent of regional output,2.49
+80,2020-21,New South Wales,Wind,Percent of regional output,7.72
+81,2020-21,Queensland,Wind,Percent of regional output,2.75
+82,2020-21,South Australia,Wind,Percent of regional output,48.94
+83,2020-21,Tasmania,Wind,Percent of regional output,17.64
+84,2020-21,Victoria,Wind,Percent of regional output,15.67

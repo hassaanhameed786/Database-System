@@ -1,0 +1,425 @@
+id,Quarter ending,State,Unit,Value
+1,1999 Q1,New South Wales,$ per megawatt hour,21
+2,1999 Q1,Queensland,$ per megawatt hour,93
+3,1999 Q1,South Australia,$ per megawatt hour,61
+4,1999 Q1,Victoria,$ per megawatt hour,25
+5,1999 Q2,New South Wales,$ per megawatt hour,29
+6,1999 Q2,Queensland,$ per megawatt hour,31
+7,1999 Q2,South Australia,$ per megawatt hour,50
+8,1999 Q2,Victoria,$ per megawatt hour,29
+9,1999 Q3,New South Wales,$ per megawatt hour,25
+10,1999 Q3,Queensland,$ per megawatt hour,32
+11,1999 Q3,South Australia,$ per megawatt hour,53
+12,1999 Q3,Victoria,$ per megawatt hour,23
+13,1999 Q4,New South Wales,$ per megawatt hour,19
+14,1999 Q4,Queensland,$ per megawatt hour,28
+15,1999 Q4,South Australia,$ per megawatt hour,77
+16,1999 Q4,Victoria,$ per megawatt hour,18
+17,2000 Q1,New South Wales,$ per megawatt hour,35
+18,2000 Q1,Queensland,$ per megawatt hour,77
+19,2000 Q1,South Australia,$ per megawatt hour,90
+20,2000 Q1,Victoria,$ per megawatt hour,29
+21,2000 Q2,New South Wales,$ per megawatt hour,42
+22,2000 Q2,Queensland,$ per megawatt hour,58
+23,2000 Q2,South Australia,$ per megawatt hour,54
+24,2000 Q2,Victoria,$ per megawatt hour,41
+25,2000 Q3,New South Wales,$ per megawatt hour,49
+26,2000 Q3,Queensland,$ per megawatt hour,44
+27,2000 Q3,South Australia,$ per megawatt hour,60
+28,2000 Q3,Victoria,$ per megawatt hour,54
+29,2000 Q4,New South Wales,$ per megawatt hour,27
+30,2000 Q4,Queensland,$ per megawatt hour,43
+31,2000 Q4,South Australia,$ per megawatt hour,56
+32,2000 Q4,Victoria,$ per megawatt hour,36
+33,2001 Q1,New South Wales,$ per megawatt hour,52
+34,2001 Q1,Queensland,$ per megawatt hour,56
+35,2001 Q1,South Australia,$ per megawatt hour,109
+36,2001 Q1,Victoria,$ per megawatt hour,72
+37,2001 Q2,New South Wales,$ per megawatt hour,34
+38,2001 Q2,Queensland,$ per megawatt hour,34
+39,2001 Q2,South Australia,$ per megawatt hour,36
+40,2001 Q2,Victoria,$ per megawatt hour,32
+41,2001 Q3,New South Wales,$ per megawatt hour,30
+42,2001 Q3,Queensland,$ per megawatt hour,27
+43,2001 Q3,South Australia,$ per megawatt hour,28
+44,2001 Q3,Victoria,$ per megawatt hour,27
+45,2001 Q4,New South Wales,$ per megawatt hour,28
+46,2001 Q4,Queensland,$ per megawatt hour,31
+47,2001 Q4,South Australia,$ per megawatt hour,27
+48,2001 Q4,Victoria,$ per megawatt hour,28
+49,2002 Q1,New South Wales,$ per megawatt hour,28
+50,2002 Q1,Queensland,$ per megawatt hour,35
+51,2002 Q1,South Australia,$ per megawatt hour,29
+52,2002 Q1,Victoria,$ per megawatt hour,27
+53,2002 Q2,New South Wales,$ per megawatt hour,66
+54,2002 Q2,Queensland,$ per megawatt hour,58
+55,2002 Q2,South Australia,$ per megawatt hour,50
+56,2002 Q2,Victoria,$ per megawatt hour,49
+57,2002 Q3,New South Wales,$ per megawatt hour,43
+58,2002 Q3,Queensland,$ per megawatt hour,54
+59,2002 Q3,South Australia,$ per megawatt hour,40
+60,2002 Q3,Victoria,$ per megawatt hour,38
+61,2002 Q4,New South Wales,$ per megawatt hour,39
+62,2002 Q4,Queensland,$ per megawatt hour,64
+63,2002 Q4,South Australia,$ per megawatt hour,32
+64,2002 Q4,Victoria,$ per megawatt hour,28
+65,2003 Q1,New South Wales,$ per megawatt hour,33
+66,2003 Q1,Queensland,$ per megawatt hour,23
+67,2003 Q1,South Australia,$ per megawatt hour,30
+68,2003 Q1,Victoria,$ per megawatt hour,24
+69,2003 Q2,New South Wales,$ per megawatt hour,33
+70,2003 Q2,Queensland,$ per megawatt hour,25
+71,2003 Q2,South Australia,$ per megawatt hour,28
+72,2003 Q2,Victoria,$ per megawatt hour,28
+73,2003 Q3,New South Wales,$ per megawatt hour,33
+74,2003 Q3,Queensland,$ per megawatt hour,28
+75,2003 Q3,South Australia,$ per megawatt hour,26
+76,2003 Q3,Victoria,$ per megawatt hour,23
+77,2003 Q4,New South Wales,$ per megawatt hour,21
+78,2003 Q4,Queensland,$ per megawatt hour,20
+79,2003 Q4,South Australia,$ per megawatt hour,33
+80,2003 Q4,Victoria,$ per megawatt hour,24
+81,2004 Q1,New South Wales,$ per megawatt hour,60
+82,2004 Q1,Queensland,$ per megawatt hour,45
+83,2004 Q1,South Australia,$ per megawatt hour,64
+84,2004 Q1,Victoria,$ per megawatt hour,30
+85,2004 Q2,New South Wales,$ per megawatt hour,33
+86,2004 Q2,Queensland,$ per megawatt hour,29
+87,2004 Q2,South Australia,$ per megawatt hour,34
+88,2004 Q2,Victoria,$ per megawatt hour,31
+89,2004 Q3,New South Wales,$ per megawatt hour,31
+90,2004 Q3,Queensland,$ per megawatt hour,27
+91,2004 Q3,South Australia,$ per megawatt hour,36
+92,2004 Q3,Victoria,$ per megawatt hour,28
+93,2004 Q4,New South Wales,$ per megawatt hour,90
+94,2004 Q4,Queensland,$ per megawatt hour,48
+95,2004 Q4,South Australia,$ per megawatt hour,54
+96,2004 Q4,Victoria,$ per megawatt hour,38
+97,2005 Q1,New South Wales,$ per megawatt hour,35
+98,2005 Q1,Queensland,$ per megawatt hour,25
+99,2005 Q1,South Australia,$ per megawatt hour,31
+100,2005 Q1,Victoria,$ per megawatt hour,22
+101,2005 Q2,New South Wales,$ per megawatt hour,28
+102,2005 Q2,Queensland,$ per megawatt hour,23
+103,2005 Q2,South Australia,$ per megawatt hour,36
+104,2005 Q2,Victoria,$ per megawatt hour,27
+105,2005 Q3,New South Wales,$ per megawatt hour,29
+106,2005 Q3,Queensland,$ per megawatt hour,22
+107,2005 Q3,South Australia,$ per megawatt hour,34
+108,2005 Q3,Tasmania,$ per megawatt hour,100
+109,2005 Q3,Victoria,$ per megawatt hour,30
+110,2005 Q4,New South Wales,$ per megawatt hour,73
+111,2005 Q4,Queensland,$ per megawatt hour,39
+112,2005 Q4,South Australia,$ per megawatt hour,47
+113,2005 Q4,Tasmania,$ per megawatt hour,63
+114,2005 Q4,Victoria,$ per megawatt hour,32
+115,2006 Q1,New South Wales,$ per megawatt hour,45
+116,2006 Q1,Queensland,$ per megawatt hour,38
+117,2006 Q1,South Australia,$ per megawatt hour,57
+118,2006 Q1,Tasmania,$ per megawatt hour,33
+119,2006 Q1,Victoria,$ per megawatt hour,53
+120,2006 Q2,New South Wales,$ per megawatt hour,28
+121,2006 Q2,Queensland,$ per megawatt hour,25
+122,2006 Q2,South Australia,$ per megawatt hour,38
+123,2006 Q2,Tasmania,$ per megawatt hour,38
+124,2006 Q2,Victoria,$ per megawatt hour,30
+125,2006 Q3,New South Wales,$ per megawatt hour,39
+126,2006 Q3,Queensland,$ per megawatt hour,26
+127,2006 Q3,South Australia,$ per megawatt hour,43
+128,2006 Q3,Tasmania,$ per megawatt hour,42
+129,2006 Q3,Victoria,$ per megawatt hour,39
+130,2006 Q4,New South Wales,$ per megawatt hour,27
+131,2006 Q4,Queensland,$ per megawatt hour,23
+132,2006 Q4,South Australia,$ per megawatt hour,40
+133,2006 Q4,Tasmania,$ per megawatt hour,37
+134,2006 Q4,Victoria,$ per megawatt hour,29
+135,2007 Q1,New South Wales,$ per megawatt hour,57
+136,2007 Q1,Queensland,$ per megawatt hour,60
+137,2007 Q1,South Australia,$ per megawatt hour,69
+138,2007 Q1,Tasmania,$ per megawatt hour,50
+139,2007 Q1,Victoria,$ per megawatt hour,75
+140,2007 Q2,New South Wales,$ per megawatt hour,146
+141,2007 Q2,Queensland,$ per megawatt hour,119
+142,2007 Q2,South Australia,$ per megawatt hour,83
+143,2007 Q2,Tasmania,$ per megawatt hour,74
+144,2007 Q2,Victoria,$ per megawatt hour,99
+145,2007 Q3,New South Wales,$ per megawatt hour,59
+146,2007 Q3,Queensland,$ per megawatt hour,56
+147,2007 Q3,South Australia,$ per megawatt hour,62
+148,2007 Q3,Tasmania,$ per megawatt hour,65
+149,2007 Q3,Victoria,$ per megawatt hour,60
+150,2007 Q4,New South Wales,$ per megawatt hour,41
+151,2007 Q4,Queensland,$ per megawatt hour,56
+152,2007 Q4,South Australia,$ per megawatt hour,46
+153,2007 Q4,Tasmania,$ per megawatt hour,44
+154,2007 Q4,Victoria,$ per megawatt hour,44
+155,2008 Q1,New South Wales,$ per megawatt hour,34
+156,2008 Q1,Queensland,$ per megawatt hour,81
+157,2008 Q1,South Australia,$ per megawatt hour,243
+158,2008 Q1,Tasmania,$ per megawatt hour,54
+159,2008 Q1,Victoria,$ per megawatt hour,50
+160,2008 Q2,New South Wales,$ per megawatt hour,42
+161,2008 Q2,Queensland,$ per megawatt hour,38
+162,2008 Q2,South Australia,$ per megawatt hour,46
+163,2008 Q2,Tasmania,$ per megawatt hour,61
+164,2008 Q2,Victoria,$ per megawatt hour,47
+165,2008 Q3,New South Wales,$ per megawatt hour,41
+166,2008 Q3,Queensland,$ per megawatt hour,36
+167,2008 Q3,South Australia,$ per megawatt hour,42
+168,2008 Q3,Tasmania,$ per megawatt hour,44
+169,2008 Q3,Victoria,$ per megawatt hour,42
+170,2008 Q4,New South Wales,$ per megawatt hour,51
+171,2008 Q4,Queensland,$ per megawatt hour,39
+172,2008 Q4,South Australia,$ per megawatt hour,32
+173,2008 Q4,Tasmania,$ per megawatt hour,44
+174,2008 Q4,Victoria,$ per megawatt hour,34
+175,2009 Q1,New South Wales,$ per megawatt hour,43
+176,2009 Q1,Queensland,$ per megawatt hour,37
+177,2009 Q1,South Australia,$ per megawatt hour,161
+178,2009 Q1,Tasmania,$ per megawatt hour,55
+179,2009 Q1,Victoria,$ per megawatt hour,87
+180,2009 Q2,New South Wales,$ per megawatt hour,35
+181,2009 Q2,Queensland,$ per megawatt hour,32
+182,2009 Q2,South Australia,$ per megawatt hour,35
+183,2009 Q2,Tasmania,$ per megawatt hour,106
+184,2009 Q2,Victoria,$ per megawatt hour,34
+185,2009 Q3,New South Wales,$ per megawatt hour,28
+186,2009 Q3,Queensland,$ per megawatt hour,26
+187,2009 Q3,South Australia,$ per megawatt hour,27
+188,2009 Q3,Tasmania,$ per megawatt hour,24
+189,2009 Q3,Victoria,$ per megawatt hour,25
+190,2009 Q4,New South Wales,$ per megawatt hour,100
+191,2009 Q4,Queensland,$ per megawatt hour,53
+192,2009 Q4,South Australia,$ per megawatt hour,134
+193,2009 Q4,Tasmania,$ per megawatt hour,31
+194,2009 Q4,Victoria,$ per megawatt hour,29
+195,2010 Q1,New South Wales,$ per megawatt hour,52
+196,2010 Q1,Queensland,$ per megawatt hour,46
+197,2010 Q1,South Australia,$ per megawatt hour,134
+198,2010 Q1,Tasmania,$ per megawatt hour,27
+199,2010 Q1,Victoria,$ per megawatt hour,67
+200,2010 Q2,New South Wales,$ per megawatt hour,30
+201,2010 Q2,Queensland,$ per megawatt hour,22
+202,2010 Q2,South Australia,$ per megawatt hour,34
+203,2010 Q2,Tasmania,$ per megawatt hour,40
+204,2010 Q2,Victoria,$ per megawatt hour,48
+205,2010 Q3,New South Wales,$ per megawatt hour,30
+206,2010 Q3,Queensland,$ per megawatt hour,22
+207,2010 Q3,South Australia,$ per megawatt hour,29
+208,2010 Q3,Tasmania,$ per megawatt hour,41
+209,2010 Q3,Victoria,$ per megawatt hour,26
+210,2010 Q4,New South Wales,$ per megawatt hour,23
+211,2010 Q4,Queensland,$ per megawatt hour,21
+212,2010 Q4,South Australia,$ per megawatt hour,23
+213,2010 Q4,Tasmania,$ per megawatt hour,21
+214,2010 Q4,Victoria,$ per megawatt hour,19
+215,2011 Q1,New South Wales,$ per megawatt hour,90
+216,2011 Q1,Queensland,$ per megawatt hour,65
+217,2011 Q1,South Australia,$ per megawatt hour,83
+218,2011 Q1,Tasmania,$ per megawatt hour,27
+219,2011 Q1,Victoria,$ per megawatt hour,41
+220,2011 Q2,New South Wales,$ per megawatt hour,28
+221,2011 Q2,Queensland,$ per megawatt hour,26
+222,2011 Q2,South Australia,$ per megawatt hour,32
+223,2011 Q2,Tasmania,$ per megawatt hour,32
+224,2011 Q2,Victoria,$ per megawatt hour,30
+225,2011 Q3,New South Wales,$ per megawatt hour,31
+226,2011 Q3,Queensland,$ per megawatt hour,29
+227,2011 Q3,South Australia,$ per megawatt hour,37
+228,2011 Q3,Tasmania,$ per megawatt hour,30
+229,2011 Q3,Victoria,$ per megawatt hour,30
+230,2011 Q4,New South Wales,$ per megawatt hour,32
+231,2011 Q4,Queensland,$ per megawatt hour,30
+232,2011 Q4,South Australia,$ per megawatt hour,33
+233,2011 Q4,Tasmania,$ per megawatt hour,30
+234,2011 Q4,Victoria,$ per megawatt hour,25
+235,2012 Q1,New South Wales,$ per megawatt hour,26
+236,2012 Q1,Queensland,$ per megawatt hour,31
+237,2012 Q1,South Australia,$ per megawatt hour,28
+238,2012 Q1,Tasmania,$ per megawatt hour,37
+239,2012 Q1,Victoria,$ per megawatt hour,26
+240,2012 Q2,New South Wales,$ per megawatt hour,33
+241,2012 Q2,Queensland,$ per megawatt hour,30
+242,2012 Q2,South Australia,$ per megawatt hour,30
+243,2012 Q2,Tasmania,$ per megawatt hour,35
+244,2012 Q2,Victoria,$ per megawatt hour,33
+245,2012 Q3,New South Wales,$ per megawatt hour,60
+246,2012 Q3,Queensland,$ per megawatt hour,58
+247,2012 Q3,South Australia,$ per megawatt hour,69
+248,2012 Q3,Tasmania,$ per megawatt hour,50
+249,2012 Q3,Victoria,$ per megawatt hour,63
+250,2012 Q4,New South Wales,$ per megawatt hour,55
+251,2012 Q4,Queensland,$ per megawatt hour,57
+252,2012 Q4,South Australia,$ per megawatt hour,60
+253,2012 Q4,Tasmania,$ per megawatt hour,47
+254,2012 Q4,Victoria,$ per megawatt hour,67
+255,2013 Q1,New South Wales,$ per megawatt hour,52
+256,2013 Q1,Queensland,$ per megawatt hour,105
+257,2013 Q1,South Australia,$ per megawatt hour,64
+258,2013 Q1,Tasmania,$ per megawatt hour,51
+259,2013 Q1,Victoria,$ per megawatt hour,57
+260,2013 Q2,New South Wales,$ per megawatt hour,56
+261,2013 Q2,Queensland,$ per megawatt hour,60
+262,2013 Q2,South Australia,$ per megawatt hour,106
+263,2013 Q2,Tasmania,$ per megawatt hour,47
+264,2013 Q2,Victoria,$ per megawatt hour,57
+265,2013 Q3,New South Wales,$ per megawatt hour,56
+266,2013 Q3,Queensland,$ per megawatt hour,60
+267,2013 Q3,South Australia,$ per megawatt hour,70
+268,2013 Q3,Tasmania,$ per megawatt hour,47
+269,2013 Q3,Victoria,$ per megawatt hour,55
+270,2013 Q4,New South Wales,$ per megawatt hour,55
+271,2013 Q4,Queensland,$ per megawatt hour,59
+272,2013 Q4,South Australia,$ per megawatt hour,71
+273,2013 Q4,Tasmania,$ per megawatt hour,41
+274,2013 Q4,Victoria,$ per megawatt hour,50
+275,2014 Q1,New South Wales,$ per megawatt hour,51
+276,2014 Q1,Queensland,$ per megawatt hour,71
+277,2014 Q1,South Australia,$ per megawatt hour,78
+278,2014 Q1,Tasmania,$ per megawatt hour,41
+279,2014 Q1,Victoria,$ per megawatt hour,64
+280,2014 Q2,New South Wales,$ per megawatt hour,50
+281,2014 Q2,Queensland,$ per megawatt hour,51
+282,2014 Q2,South Australia,$ per megawatt hour,53
+283,2014 Q2,Tasmania,$ per megawatt hour,39
+284,2014 Q2,Victoria,$ per megawatt hour,48
+285,2014 Q3,New South Wales,$ per megawatt hour,40
+286,2014 Q3,Queensland,$ per megawatt hour,32
+287,2014 Q3,South Australia,$ per megawatt hour,48
+288,2014 Q3,Tasmania,$ per megawatt hour,36
+289,2014 Q3,Victoria,$ per megawatt hour,38
+290,2014 Q4,New South Wales,$ per megawatt hour,33
+291,2014 Q4,Queensland,$ per megawatt hour,68
+292,2014 Q4,South Australia,$ per megawatt hour,32
+293,2014 Q4,Tasmania,$ per megawatt hour,40
+294,2014 Q4,Victoria,$ per megawatt hour,28
+295,2015 Q1,New South Wales,$ per megawatt hour,35
+296,2015 Q1,Queensland,$ per megawatt hour,107
+297,2015 Q1,South Australia,$ per megawatt hour,40
+298,2015 Q1,Tasmania,$ per megawatt hour,39
+299,2015 Q1,Victoria,$ per megawatt hour,28
+300,2015 Q2,New South Wales,$ per megawatt hour,37
+301,2015 Q2,Queensland,$ per megawatt hour,32
+302,2015 Q2,South Australia,$ per megawatt hour,48
+303,2015 Q2,Tasmania,$ per megawatt hour,34
+304,2015 Q2,Victoria,$ per megawatt hour,32
+305,2015 Q3,New South Wales,$ per megawatt hour,46
+306,2015 Q3,Queensland,$ per megawatt hour,45
+307,2015 Q3,South Australia,$ per megawatt hour,69
+308,2015 Q3,Tasmania,$ per megawatt hour,38
+309,2015 Q3,Victoria,$ per megawatt hour,39
+310,2015 Q4,New South Wales,$ per megawatt hour,45
+311,2015 Q4,Queensland,$ per megawatt hour,43
+312,2015 Q4,South Australia,$ per megawatt hour,59
+313,2015 Q4,Tasmania,$ per megawatt hour,80
+314,2015 Q4,Victoria,$ per megawatt hour,43
+315,2016 Q1,New South Wales,$ per megawatt hour,46
+316,2016 Q1,Queensland,$ per megawatt hour,89
+317,2016 Q1,South Australia,$ per megawatt hour,54
+318,2016 Q1,Tasmania,$ per megawatt hour,174
+319,2016 Q1,Victoria,$ per megawatt hour,50
+320,2016 Q2,New South Wales,$ per megawatt hour,81
+321,2016 Q2,Queensland,$ per megawatt hour,77
+322,2016 Q2,South Australia,$ per megawatt hour,87
+323,2016 Q2,Tasmania,$ per megawatt hour,114
+324,2016 Q2,Victoria,$ per megawatt hour,69
+325,2016 Q3,New South Wales,$ per megawatt hour,56
+326,2016 Q3,Queensland,$ per megawatt hour,54
+327,2016 Q3,South Australia,$ per megawatt hour,133
+328,2016 Q3,Tasmania,$ per megawatt hour,55
+329,2016 Q3,Victoria,$ per megawatt hour,53
+330,2016 Q4,New South Wales,$ per megawatt hour,66
+331,2016 Q4,Queensland,$ per megawatt hour,66
+332,2016 Q4,South Australia,$ per megawatt hour,75
+333,2016 Q4,Tasmania,$ per megawatt hour,38
+334,2016 Q4,Victoria,$ per megawatt hour,35
+335,2017 Q1,New South Wales,$ per megawatt hour,135
+336,2017 Q1,Queensland,$ per megawatt hour,194
+337,2017 Q1,South Australia,$ per megawatt hour,160
+338,2017 Q1,Tasmania,$ per megawatt hour,99
+339,2017 Q1,Victoria,$ per megawatt hour,85
+340,2017 Q2,New South Wales,$ per megawatt hour,94
+341,2017 Q2,Queensland,$ per megawatt hour,87
+342,2017 Q2,South Australia,$ per megawatt hour,118
+343,2017 Q2,Tasmania,$ per megawatt hour,114
+344,2017 Q2,Victoria,$ per megawatt hour,107
+345,2017 Q3,New South Wales,$ per megawatt hour,95
+346,2017 Q3,Queensland,$ per megawatt hour,82
+347,2017 Q3,South Australia,$ per megawatt hour,102
+348,2017 Q3,Tasmania,$ per megawatt hour,97
+349,2017 Q3,Victoria,$ per megawatt hour,103
+350,2017 Q4,New South Wales,$ per megawatt hour,81
+351,2017 Q4,Queensland,$ per megawatt hour,73
+352,2017 Q4,South Australia,$ per megawatt hour,85
+353,2017 Q4,Tasmania,$ per megawatt hour,85
+354,2017 Q4,Victoria,$ per megawatt hour,88
+355,2018 Q1,New South Wales,$ per megawatt hour,74
+356,2018 Q1,Queensland,$ per megawatt hour,72
+357,2018 Q1,South Australia,$ per megawatt hour,144
+358,2018 Q1,Tasmania,$ per megawatt hour,91
+359,2018 Q1,Victoria,$ per megawatt hour,120
+360,2018 Q2,New South Wales,$ per megawatt hour,88
+361,2018 Q2,Queensland,$ per megawatt hour,72
+362,2018 Q2,South Australia,$ per megawatt hour,101
+363,2018 Q2,Tasmania,$ per megawatt hour,77
+364,2018 Q2,Victoria,$ per megawatt hour,86
+365,2018 Q3,New South Wales,$ per megawatt hour,90
+366,2018 Q3,Queensland,$ per megawatt hour,80
+367,2018 Q3,South Australia,$ per megawatt hour,95
+368,2018 Q3,Tasmania,$ per megawatt hour,43
+369,2018 Q3,Victoria,$ per megawatt hour,84
+370,2018 Q4,New South Wales,$ per megawatt hour,88
+371,2018 Q4,Queensland,$ per megawatt hour,85
+372,2018 Q4,South Australia,$ per megawatt hour,100
+373,2018 Q4,Tasmania,$ per megawatt hour,85
+374,2018 Q4,Victoria,$ per megawatt hour,100
+375,2019 Q1,New South Wales,$ per megawatt hour,105
+376,2019 Q1,Queensland,$ per megawatt hour,89
+377,2019 Q1,South Australia,$ per megawatt hour,220
+378,2019 Q1,Tasmania,$ per megawatt hour,136
+379,2019 Q1,Victoria,$ per megawatt hour,213
+380,2019 Q2,New South Wales,$ per megawatt hour,86
+381,2019 Q2,Queensland,$ per megawatt hour,78
+382,2019 Q2,South Australia,$ per megawatt hour,95
+383,2019 Q2,Tasmania,$ per megawatt hour,99
+384,2019 Q2,Victoria,$ per megawatt hour,101
+385,2019 Q3,New South Wales,$ per megawatt hour,86
+386,2019 Q3,Queensland,$ per megawatt hour,66
+387,2019 Q3,South Australia,$ per megawatt hour,82
+388,2019 Q3,Tasmania,$ per megawatt hour,70
+389,2019 Q3,Victoria,$ per megawatt hour,103
+390,2019 Q4,New South Wales,$ per megawatt hour,76
+391,2019 Q4,Queensland,$ per megawatt hour,65
+392,2019 Q4,South Australia,$ per megawatt hour,87
+393,2019 Q4,Tasmania,$ per megawatt hour,76
+394,2019 Q4,Victoria,$ per megawatt hour,82
+395,2020 Q1,New South Wales,$ per megawatt hour,108
+396,2020 Q1,Queensland,$ per megawatt hour,57
+397,2020 Q1,South Australia,$ per megawatt hour,81
+398,2020 Q1,Tasmania,$ per megawatt hour,44
+399,2020 Q1,Victoria,$ per megawatt hour,109
+400,2020 Q2,New South Wales,$ per megawatt hour,45
+401,2020 Q2,Queensland,$ per megawatt hour,35
+402,2020 Q2,South Australia,$ per megawatt hour,44
+403,2020 Q2,Tasmania,$ per megawatt hour,32
+404,2020 Q2,Victoria,$ per megawatt hour,43
+405,2020 Q3,New South Wales,$ per megawatt hour,49
+406,2020 Q3,Queensland,$ per megawatt hour,34
+407,2020 Q3,South Australia,$ per megawatt hour,46
+408,2020 Q3,Tasmania,$ per megawatt hour,51
+409,2020 Q3,Victoria,$ per megawatt hour,54
+410,2020 Q4,New South Wales,$ per megawatt hour,71
+411,2020 Q4,Queensland,$ per megawatt hour,48
+412,2020 Q4,South Australia,$ per megawatt hour,35
+413,2020 Q4,Tasmania,$ per megawatt hour,46
+414,2020 Q4,Victoria,$ per megawatt hour,40
+415,2021 Q1,New South Wales,$ per megawatt hour,39
+416,2021 Q1,Queensland,$ per megawatt hour,45
+417,2021 Q1,South Australia,$ per megawatt hour,53
+418,2021 Q1,Tasmania,$ per megawatt hour,34
+419,2021 Q1,Victoria,$ per megawatt hour,27
+420,2021 Q2,New South Wales,$ per megawatt hour,129
+421,2021 Q2,Queensland,$ per megawatt hour,141
+422,2021 Q2,South Australia,$ per megawatt hour,77
+423,2021 Q2,Tasmania,$ per megawatt hour,47
+424,2021 Q2,Victoria,$ per megawatt hour,77
