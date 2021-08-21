@@ -1,0 +1,47 @@
+﻿CREATE PROCEDURE [dbo].[GetReportDataMonth]
+
+@StartDate varchar(50),
+@EndDate varchar(50)
+AS
+BEGIN
+
+SET @StartDate = DATEADD(wk, DATEDIFF(wk,0,GETDATE()),-60)
+SET @EndDate = DATEADD(wk, DATEDIFF(wk,0,GETDATE()),0) 
+
+
+drop table temp1
+SELECT [Timestamp],  CONVERT(VARCHAR(8),[Timestamp],108) as Time,
+	 DATENAME(weekday,[Timestamp]) 'DayName',
+	 CASE    WHEN       [Time] > '06:45' and [Time] < '21:00'
+        THEN
+      'Day'    
+		ELSE
+      'Night'
+	 END AS [DayNight]
+      ,[Skillset]
+      ,[CallsAnswered]
+      ,[SkillsetAbandoned]
+      into temp1
+  FROM [dbo].[iSkillsetStat]
+
+--select * from temp1 order by timeStamp
+
+
+select  left(TimeStamp,10) [DATE], [DayName], [DayNight],SkillSet, SUM(cast(CallsAnswered as int)) as [CallsAnswered] , SUM(cast(SkillsetAbandoned as int)) as [SkillsetAbandoned] from temp1
+where TimeStamp >= @StartDate and TimeStamp <= @EndDate
+group by SkillSet,[DayName], [DayNight], left(TimeStamp,10)
+order by left(TimeStamp,10), SkillSet, DayNight
+
+select  left(TimeStamp,10) [DATE], Time, [DayName],SkillSet, SUM(cast(CallsAnswered as int)) as [CallsAnswered] , SUM(cast(SkillsetAbandoned as int)) as [SkillsetAbandoned] from temp1
+where TimeStamp >= @StartDate and TimeStamp <= @EndDate
+group by SkillSet,[DayName], Time, left(TimeStamp,10)
+order by left(TimeStamp,10),Time, SkillSet
+
+select left(TimeStamp,10) [DATE],AgentGivenName + ' ' + AgentSurName as [Name], ContactType,SkillSet,SUM(CallsAnswered) [CallsAnswered], Sum(TalkTime)/60 [TalkTime] from dAgentBySkillsetStat
+where AgentGivenName IS NOT NULL and TimeStamp >= @StartDate and TimeStamp <= @EndDate and agentLogin not like '508%' and  agentLogin not like '10%' 
+and AgentSurName Not like 'Mann' and AgentSurName not like 'Sanigaram'
+Group BY AgentGivenName + ' ' + AgentSurName, ContactType,SkillSet, TimeStamp
+
+
+END
+
